@@ -20,6 +20,7 @@ document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach(butt
 applyTheme(document.documentElement.dataset.theme==='light');
 let current=0,presenting=false,ownedFullscreen=false,idleTimer=0,toastTimer=0,transitionAnimation:Animation|null=null;
 let fullscreenExit:Promise<void>|null=null;
+let lastPresented:number|null=null;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const frames:HTMLElement[]=[];
 const pad=(n:number)=>String(n).padStart(2,'0');
@@ -77,7 +78,7 @@ async function toggleFullscreen(){if(document.fullscreenElement){if(presenting)o
 $('fullscreen').onclick=()=>void toggleFullscreen();$('present-fullscreen').onclick=()=>{wake();void toggleFullscreen();};
 $('start').onclick=()=>enter(current);
 function enter(index:number){
- if(presenting)return;current=index;presenting=true;setOutline(false);presentation.hidden=false;document.body.classList.add('is-presenting');reading.inert=true;$('topbar').inert=true;$('expand').inert=true;
+ if(presenting)return;current=index;lastPresented=null;presenting=true;setOutline(false);presentation.hidden=false;document.body.classList.add('is-presenting');reading.inert=true;$('topbar').inert=true;$('expand').inert=true;
  showSlide();wake();presentation.focus();void requestFullscreen();
 }
 function exit(){
@@ -92,7 +93,11 @@ function prepareNeighbors(){
 }
 function showSlide(){
  transitionAnimation?.cancel();const canvas=renderCanvas(slides[current],true);stage.replaceChildren(canvas);void document.fonts.ready.then(()=>{if(canvas.isConnected)fitCanvas(canvas);});stage.style.setProperty('--scale',String(Math.min(presentation.clientWidth/BASE_WIDTH,presentation.clientHeight/BASE_HEIGHT)));
- if(!reduced.matches)transitionAnimation=stage.animate([{opacity:.2,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:240,easing:'ease-out'});
+ const direction=lastPresented===null?0:Math.sign(current-lastPresented);lastPresented=current;
+ if(!reduced.matches)transitionAnimation=stage.animate([
+  {opacity:.55,transform:`translate(${direction*30}px, ${direction===0?12:0}px) scale(.99)`},
+  {opacity:1,transform:'translate(0, 0) scale(1)'}
+ ],{duration:380,easing:'cubic-bezier(.22,1,.36,1)'});
  $('counter').textContent=`${pad(current+1)} / ${slides.length}`;$('present-title').textContent=slides[current].title;$('progress').style.width=`${(current+1)/slides.length*100}%`;
  ($('previous') as HTMLButtonElement).disabled=current===0;($('next') as HTMLButtonElement).disabled=current===slides.length-1;prepareNeighbors();markCurrent();
 }

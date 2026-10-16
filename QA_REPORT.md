@@ -1,5 +1,9 @@
 # Kalite Kontrol Raporu
 
+## 1.1.2 hareket düzenlemesi
+
+Sunumda 380 ms yönlü geçiş, kısa başlık girişi, okumada 650 ms yüzey görünümü, giriş metinlerinde kademeli görünüm ve menüler/düğmelerde kısa hareket eklendi. Slaytların son yerleşimi ve renkleri değiştirilmedi. Hızlı gezinme önceki geçişi iptal eder; sürekli veya otomatik slayt hareketi yoktur. Azaltılmış hareket tercihinde CSS hareketleri ve sunum geçişi kapalıdır.
+
 ## 1.1.1 gri palet düzeltmesi
 
 Açık tema, önceki beyaza yakın yüzeyler yerine sayfada `#AEB7BF`, slayt zemininde `#C2C8CD`, iç yüzeylerde `#BAC2C8` ve kartlarda `#CBD1D6` kullanır. Ana metin `#20282F`, gövde metni `#34424E` olarak koyulaştırıldı. Koyu tema, slayt sırası/içeriği ve özgün fotoğraflar değişmedi. Yerel üretim derlemesi ile 9 tema/fare kontrolü geçti; giriş, 9. slayt ve 18. slaytın gerçek tarayıcı görüntüleri incelendi. Fiziksel projeksiyon cihazında test yapılmadı.

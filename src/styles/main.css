@@ -60,3 +60,23 @@ main{max-width:1440px;margin:auto;padding:0 60px}.intro{padding:52px 0 28px}.eye
 .presentation-tools{display:flex;align-items:center;gap:9px}
 .presentation-bottom .key-hint{min-width:140px}
 @media(max-width:700px){.reading-controls{gap:0}.theme-toggle{padding:10px 12px;font-size:11px}.presentation-tools{gap:6px}.presentation-bottom{gap:10px}}
+/* Short, one-shot motion keeps reading and presentation navigation responsive. */
+@media(prefers-reduced-motion:no-preference){
+.intro .eyebrow{animation:content-arrive .5s cubic-bezier(.22,1,.36,1) both}
+.intro h1{animation:content-arrive .6s .06s cubic-bezier(.22,1,.36,1) both}
+.intro p,.intro .deck-badge{animation:content-arrive .6s .12s cubic-bezier(.22,1,.36,1) both}
+.intro-bottom{animation:content-arrive .6s .18s cubic-bezier(.22,1,.36,1) both}
+.revealed .slide-frame,.revealed .mobile-content{animation:slide-arrive .65s cubic-bezier(.22,1,.36,1) both}
+.revealed .slide-meta{animation:content-arrive .5s .04s cubic-bezier(.22,1,.36,1) both}
+#stage .slide-title{animation:content-arrive .42s .07s cubic-bezier(.22,1,.36,1) both}
+.outline:not([hidden]),.downloads[open]{animation:panel-arrive .22s cubic-bezier(.22,1,.36,1) both}
+.button,.icon-button,.slide-open,.download-choice{transition:background .2s,border-color .2s,color .2s,translate .2s,box-shadow .2s}
+.button:active,.icon-button:active{translate:0 1px}
+.primary>span{transition:translate .22s}
+.primary:hover>span{translate:2px -2px}
+.presentation-progress i{transition:width .38s cubic-bezier(.22,1,.36,1)}
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.button:hover,.icon-button:hover,.download-choice:hover{translate:0 -2px}}
+@keyframes content-arrive{from{opacity:.45;translate:0 9px}to{opacity:1;translate:0 0}}
+@keyframes slide-arrive{from{opacity:.65;translate:0 22px}to{opacity:1;translate:0 0}}
+@keyframes panel-arrive{from{opacity:.4;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}

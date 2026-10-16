@@ -1,5 +1,11 @@
 # Değişiklik Kaydı
 
+## 1.1.2 — 16 Ekim 2026
+
+- Sunum geçişlerine ileri/geri yönünü izleyen kısa kayma ve hafif yakınlaşma eklendi; başlıklar kademeli görünür.
+- Giriş alanı, okuma slaytları, mobil kart yüzeyleri, menü/indirme pencereleri ve düğme etkileşimleri daha akıcı hâle getirildi.
+- Animasyonlar tek seferliktir; azaltılmış hareket tercihi korunur, hızlı gezinmede önceki geçiş iptal edilir.
+
 ## 1.1.1 — 16 Ekim 2026
 
 - Açık tema belirgin gümüş/arduvaz grisine çekildi; sayfa, 31 slayt, kartlar ve tabloların açık zeminleri yeniden dengelendi.
