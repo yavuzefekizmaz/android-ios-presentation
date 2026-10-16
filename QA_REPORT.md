@@ -1,5 +1,9 @@
 # Kalite Kontrol Raporu
 
+## 1.1.1 gri palet düzeltmesi
+
+Açık tema, önceki beyaza yakın yüzeyler yerine sayfada `#AEB7BF`, slayt zemininde `#C2C8CD`, iç yüzeylerde `#BAC2C8` ve kartlarda `#CBD1D6` kullanır. Ana metin `#20282F`, gövde metni `#34424E` olarak koyulaştırıldı. Koyu tema, slayt sırası/içeriği ve özgün fotoğraflar değişmedi. Yerel üretim derlemesi ile 9 tema/fare kontrolü geçti; giriş, 9. slayt ve 18. slaytın gerçek tarayıcı görüntüleri incelendi. Fiziksel projeksiyon cihazında test yapılmadı.
+
 ## Tema ve fare kontrolleri
 
 Koyu tema ilk ziyarette sistemin açık tema tercihinden bağımsız varsayılandır. Açık tema platin ve taş grisi yüzeyleri, mat yeşil vurguları kullanır; sayfa, okuma/sunum slaytları, metinler ve tabloları kapsar. Özgün fotoğraflar filtrelenmez. Koyu görsel üzerindeki yaşam döngüsü numaralarının açık rengi korunur. Seçim yerel depoda hatırlanır ve ağ kapalı yeniden yüklemede de uygulanır.

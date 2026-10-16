@@ -1,5 +1,10 @@
 # Değişiklik Kaydı
 
+## 1.1.1 — 16 Ekim 2026
+
+- Açık tema belirgin gümüş/arduvaz grisine çekildi; sayfa, 31 slayt, kartlar ve tabloların açık zeminleri yeniden dengelendi.
+- Metinler daha koyu grafit tonlarına alındı; koyu tema ve özgün görseller korundu.
+
 ## 1.1.0 — 16 Ekim 2026
 
 - Varsayılan koyu temayı koruyan, tüm slaytları ve arayüzü kapsayan platin/taş grisi tonlarında kalıcı açık tema seçimi eklendi. Özgün fotoğraflara renk filtresi uygulanmaz.

@@ -8,7 +8,7 @@ const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(
 const reading=$('reading'),presentation=$('presentation'),stage=$('stage'),outline=$('outline');
 function applyTheme(light:boolean){
  document.documentElement.dataset.theme=light?'light':'dark';
- document.querySelector('meta[name="theme-color"]')?.setAttribute('content',light?'#dfe2dc':'#0A0D14');
+ document.querySelector('meta[name="theme-color"]')?.setAttribute('content',light?'#aeb7bf':'#0A0D14');
  document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach(button=>{
   const label=light?'Koyu temaya geç':'Açık temaya geç';button.setAttribute('aria-pressed',String(light));button.setAttribute('aria-label',label);button.title=label;
   button.querySelector('[data-theme-icon]')!.textContent=light?'☾':'☀';

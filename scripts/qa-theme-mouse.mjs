@@ -19,8 +19,8 @@ try{
  await test('Light theme changes all 31 slides, text, tables and page while preserving images',async()=>{
   await theme().click();assert.equal(await theme().getAttribute('aria-pressed'),'true');
   const colors=await page.locator('.slide-frame>.canvas').evaluateAll(els=>els.map(el=>getComputedStyle(el).backgroundColor));
-  assert.equal(colors.length,31);assert.ok(colors.every(c=>c==='rgb(231, 233, 228)'));
-  assert.equal(await page.locator('#slayt-1 .slide-title span').first().evaluate(el=>getComputedStyle(el).color),'rgb(37, 53, 47)');
+  assert.equal(colors.length,31);assert.ok(colors.every(c=>c==='rgb(194, 200, 205)'));
+  assert.equal(await page.locator('#slayt-1 .slide-title span').first().evaluate(el=>getComputedStyle(el).color),'rgb(32, 40, 47)');
   assert.equal(await page.locator('.slide-frame table').count(),6);
   const cells=await page.locator('.slide-frame td,.slide-frame th').evaluateAll(els=>els.map(el=>getComputedStyle(el).backgroundColor));assert.ok(cells.length>0);assert.ok(cells.every(c=>c!=='rgb(24, 33, 45)'));
   assert.deepEqual(await page.locator('.slide-frame img').evaluateAll(imgs=>imgs.map(img=>img.getAttribute('src'))),photos);
@@ -32,7 +32,7 @@ try{
   await page.locator('#slayt-4 .slide-open').click();await count(4);await page.waitForFunction(()=>Boolean(document.fullscreenElement));
   const toggle=page.locator('.presentation-tools [data-theme-toggle]');await toggle.click();await count(4);
   assert.equal(await page.locator('html').getAttribute('data-theme'),'dark');assert.ok(await page.locator('#presentation').isVisible());
-  await toggle.click();await count(4);assert.equal(await page.locator('#stage .canvas').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(231, 233, 228)');
+  await toggle.click();await count(4);assert.equal(await page.locator('#stage .canvas').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(194, 200, 205)');
  });
  await test('Mouse left click advances and right click returns on slide content',async()=>{
   await page.locator('#stage').click({position:{x:500,y:250}});await count(5);
@@ -53,7 +53,7 @@ try{
  await test('Light mobile reading retains all slides and has no horizontal overflow',async()=>{
   for(const width of [320,390,700]){await page.setViewportSize({width,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.ok(await theme().isVisible());}
   assert.equal(await page.locator('.mobile-content').count(),31);
-  assert.equal(await page.locator('#slayt-1 .mobile-content').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(231, 233, 228)');
+  assert.equal(await page.locator('#slayt-1 .mobile-content').evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(194, 200, 205)');
  });
  await test('Saved light theme and mouse presentation work after an offline reload',async()=>{
   await page.waitForFunction(()=>document.querySelector('#offline-status').textContent==='Çevrimdışı hazır',{},{timeout:60000});
