@@ -29,6 +29,7 @@ gerekli bütün dosyaları zaten içerir. Python'un önceden kurulu olması yete
 Sunum: Sunumu Başlat. Sağ/sol ok, PageDown/PageUp, Space, Home/End, Esc.
 Telefon/tablet: Sunumda sağa/sola kaydırın. Görünür Çıkış düğmesiyle dönün.
 PDF yedeği: documents/android-ios.pdf
+PowerPoint: documents/android-ios.pptx
 ''',encoding='utf-8')
 
 def archive(path,files,prefix=''):

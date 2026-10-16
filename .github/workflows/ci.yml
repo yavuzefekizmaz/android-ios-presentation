@@ -29,4 +29,6 @@ jobs:
         if: always()
         with:
           name: qa-results
-          path: qa/test-results.json
+          path: |
+            qa/test-results.json
+            qa/mobile-results.json

@@ -17,7 +17,7 @@
     <nav class="toolbar" aria-label="Sunum araçları">
       <button class="button primary" id="start">Sunumu Başlat <span aria-hidden="true">↗</span></button>
       <button class="button quiet" id="fullscreen" aria-label="Tam ekranı aç veya kapat">⛶ <span>Tam ekran</span></button>
-      <a class="button quiet pdf" aria-label="Orijinal PDF’yi aç veya indir" href="./documents/android-ios.pdf" target="_blank" rel="noopener">↓ <span>PDF'yi Aç / İndir</span></a>
+      <button class="button quiet download-trigger" id="download-toggle" aria-label="PDF veya PowerPoint seç" aria-haspopup="dialog" aria-controls="downloads">↓ <span>Sunumu İndir</span></button>
       <button class="button quiet" id="outline-toggle" aria-label="Bölümlere git" aria-expanded="false" aria-controls="outline">☷ <span>Bölümlere Git</span></button>
     </nav>
     <button class="collapse-button" id="collapse" aria-expanded="true" aria-label="Gezinme çubuğunu daralt" title="Gezinme çubuğunu daralt">⌃</button>
@@ -31,14 +31,20 @@
   </aside>
   <main id="reading">
     <div class="intro">
-      <div class="eyebrow"><span class="status-dot"></span> OBSIDIAN TECH <span class="intro-divider">/</span> İŞLETİM SİSTEMLERİNE GİRİŞ</div>
+      <div class="eyebrow"><span class="status-dot"></span> İŞLETİM SİSTEMLERİNE GİRİŞ</div>
       <div class="intro-row"><div><h1>Android ve iOS Karşılaştırması</h1><p>İki ekosistemin mimarisi, güvenliği ve kullanıcı deneyimi.</p></div><span class="deck-badge">31 <span>SLAYT</span></span></div>
-      <div class="intro-bottom"><span>İstinye Üniversitesi <span class="muted-dot">·</span> Bilgisayar Programcılığı</span><span class="offline-status" id="offline-status" role="status" aria-live="polite">Çevrimdışı yedek hazırlanıyor…</span></div>
+      <div class="intro-bottom"><span>İstinye Üniversitesi <span class="muted-dot">·</span> Bilgisayar Programcılığı</span><span id="offline-status" hidden>Çevrimdışı yedek hazırlanıyor…</span></div>
     </div>
     <div class="reading-options"><span><span class="status-dot"></span> OKUMA MODU <span class="option-note">Kaydırarak keşfedin</span></span><label class="fit-option"><input type="checkbox" id="fit" /> Ekrana sığdır</label></div>
     <div id="slides" class="slides"></div>
-    <footer class="page-footer"><span>Android ve iOS Karşılaştırması</span><a href="./documents/android-ios.pdf" download="Android-iOS-Sunum.pdf">Orijinal PDF'yi indir ↓</a><a href="#">Başa dön ↑</a></footer>
+    <footer class="page-footer"><span>Android ve iOS Karşılaştırması</span><button class="download-trigger" aria-haspopup="dialog" aria-controls="downloads">PDF / PowerPoint ↓</button><a href="#">Başa dön ↑</a></footer>
   </main>
+  <dialog id="downloads" class="downloads" aria-labelledby="downloads-title">
+    <div class="downloads-head"><h2 id="downloads-title">Sunumu hangi biçimde istersiniz?</h2><button class="icon-button" id="downloads-close" aria-label="İndirme seçeneklerini kapat">×</button></div>
+    <p>Orijinal 31 slaytlık sunumu seçin.</p>
+    <a class="download-choice" href="./documents/android-ios.pdf" target="_blank" rel="noopener"><span class="download-format">PDF</span><span>PDF'yi Aç / İndir<small>Okumak ve paylaşmak için</small></span><span aria-hidden="true">↗</span></a>
+    <a class="download-choice" href="./documents/android-ios.pptx" download="Android-iOS-Sunum.pptx"><span class="download-format">PPTX</span><span>PowerPoint'i İndir<small>Özgün PowerPoint dosyası</small></span><span aria-hidden="true">↓</span></a>
+  </dialog>
   <div id="presentation" class="presentation" hidden role="dialog" aria-modal="true" aria-label="Sunum modu" tabindex="-1">
     <div id="stage" class="stage"></div>
     <div class="presentation-top present-ui"><span id="present-title"></span><button class="button exit" id="exit">Çıkış <kbd>Esc</kbd></button></div>

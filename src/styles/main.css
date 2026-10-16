@@ -29,3 +29,28 @@ main{max-width:1440px;margin:auto;padding:0 60px}.intro{padding:52px 0 28px}.eye
 .mobile-table td[data-label]::before{content:attr(data-label);display:block;color:#88bba6;font-size:10px;font-weight:600;letter-spacing:.7px;margin-bottom:5px}
 .mobile-table tbody th{background:#18212d!important}
 }
+.mobile-card{display:flex;flex-direction:column;gap:12px;min-width:0;border:1px solid #2b3645;border-radius:8px;padding:18px;overflow-wrap:anywhere}
+.mobile-card-title{margin:0}.mobile-content .mobile-card-title .source-paragraph{font-size:17px;line-height:1.45;color:#e8ebf0}
+.mobile-card .mobile-text .source-paragraph{font-size:14px;line-height:1.7}
+.mobile-icon{display:block;width:40px;height:40px;object-fit:contain;align-self:flex-start}
+.mobile-index{display:flex;align-items:center;justify-content:center;align-self:flex-start;min-width:32px;min-height:32px;border-radius:50%;background:#476a82;padding:4px}
+.mobile-content .mobile-index .source-paragraph{font-size:12px;line-height:1.2;color:#e8ebf0}
+.mobile-bullet-row{display:flex;align-items:flex-start;gap:12px}.mobile-check{flex:none;color:#8db5a3}.mobile-bullet-row>.mobile-text{min-width:0}
+.mobile-icon-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.mobile-icon-card{padding:14px;align-items:center;text-align:center}.mobile-icon-card .mobile-icon{align-self:center}
+.mobile-cycle-graphic{position:relative;align-self:center;width:min(100%,230px);flex:none;overflow:hidden}.mobile-cycle-steps{display:flex;flex-direction:column;gap:12px}
+.page-footer .download-trigger{margin-left:auto;border:0;padding:0;background:transparent;color:inherit;font-size:inherit}.page-footer .download-trigger:hover{color:#e8ebf0}
+.downloads{width:min(480px,calc(100vw - 32px));max-height:calc(100dvh - 40px);overflow:auto;margin:auto;padding:24px;border:1px solid #344254;border-radius:14px;background:#111823;color:#e8ebf0;box-shadow:0 24px 90px #0008}
+.downloads::backdrop{background:#02050cbd}.downloads-head{display:flex;align-items:center;gap:18px;justify-content:space-between}.downloads h2{margin:0;font-size:20px;line-height:1.45;letter-spacing:-.5px}.downloads>p{font-size:13px;color:#a7b2c0;line-height:1.6;margin:12px 0 22px}
+.download-choice{display:flex;align-items:center;gap:14px;min-width:0;border:1px solid #2b3645;border-radius:9px;background:#18212d;padding:17px 14px;margin-top:12px;font-size:14px;line-height:1.4}.download-choice:hover{border-color:#71a38a;background:#21362f}.download-choice>span:last-child{margin-left:auto}.download-format{display:flex;align-items:center;justify-content:center;flex:none;width:48px;height:48px;border:1px solid #526a88;border-radius:8px;font-size:11px;letter-spacing:.5px;font-weight:700}.download-choice small{display:block;margin-top:5px;font-size:11px;color:#a7b2c0}
+@media(max-width:700px){.mobile-content{padding:24px 18px}.mobile-content .mobile-label .source-paragraph{font-size:11px}.mobile-card .mobile-label .source-paragraph{font-size:12px}.page-footer .download-trigger{margin-left:0}.downloads{padding:20px}.downloads h2{font-size:18px}.download-choice{gap:10px;padding:14px 10px;font-size:13px}.download-format{width:42px;height:42px}}
+/* Reading controls: a clear, keyboard-accessible fit switch. */
+.reading-options{align-items:center;gap:16px}
+.fit-option{min-height:44px;padding:10px 15px;gap:11px;border:1px solid #394c51;border-radius:12px;background:#121d24;color:#dce8e4;font-size:12px;font-weight:550;line-height:1.4;transition:background .18s,border-color .18s}
+.fit-option:hover{background:#192a30;border-color:#6b9c8a}
+.fit-option:has(input:checked){background:#192e28;border-color:#6b9c8a}
+.fit-option:has(input:focus-visible){outline:2px solid #9bc7b6;outline-offset:4px}
+.fit-option input{appearance:none;flex-shrink:0;position:relative;width:38px;height:22px;margin:0;border:1px solid #62717c;border-radius:99px;background:#27333e;cursor:pointer;transition:background .18s,border-color .18s}
+.fit-option input:before{content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#ccd6de;transition:transform .18s,background .18s}
+.fit-option input:checked{background:#639981;border-color:#82b59e}
+.fit-option input:checked:before{transform:translateX(16px);background:#fff}
+@media(prefers-reduced-motion:reduce){.fit-option,.fit-option input,.fit-option input:before{transition:none}}

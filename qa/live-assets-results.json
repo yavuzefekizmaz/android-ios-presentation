@@ -1,8 +1,8 @@
 {
-  "date": "2026-10-16T08:52:53.854Z",
+  "date": "2026-10-16T09:31:10.897Z",
   "platform": "win32",
   "node": "v24.15.0",
-  "url": "https://android-ios-presentation.pages.dev/",
+  "url": "https://android-vs-ios.pages.dev/",
   "browser": "156.0.8078.4",
   "status": "PASS",
   "assets": [
@@ -367,19 +367,24 @@
       "sha256": "e605e061a55ba1fc6d3c288eb80098c2665b79f6bae0b6e1fe7f32d6fd83d1ec"
     },
     {
-      "path": "assets/index-C8LWg0SI.js",
+      "path": "assets/index-Cn7kU26P.css",
       "status": 200,
-      "sha256": "355c938a5132ec38c8aef53714370e56cd7ded8c0b1babaad4bb635b6fcd6de1"
+      "sha256": "e81e4af749e1528fd8e3bc38dd057f889507661b75ec86e8e29c7c3d4e588d30"
     },
     {
-      "path": "assets/index-D3Xx19kR.css",
+      "path": "assets/index-DW9NYzfT.js",
       "status": 200,
-      "sha256": "8b807e36fcfcfe01440aea4c999905b5c2a44635914472151a79a923e0728af9"
+      "sha256": "117a982ae2cce9202bab064926f1f5fed66c4bdfc3868031df366ef8f1b90450"
     },
     {
       "path": "documents/android-ios.pdf",
       "status": 200,
       "sha256": "9e78c1b6016ac77f1a0080c17c457a52d8074bfe98f0bea21150f03ee1b66a48"
+    },
+    {
+      "path": "documents/android-ios.pptx",
+      "status": 200,
+      "sha256": "1fa844d24a4379edb09eb809e56fc499087e1a3f32b4c740268bc1b43fd756f9"
     },
     {
       "path": "icon-192.png",
@@ -399,7 +404,7 @@
     {
       "path": "index.html",
       "status": 200,
-      "sha256": "933630a13f7ba24c1db594f3cb103e1f9077de55b7d9141897bfd83d03daa4a8"
+      "sha256": "08c21631ddf705b059417a67bcf57182916fe9980f2f0649d41520c2aa3f60da"
     },
     {
       "path": "manifest.webmanifest",
@@ -409,18 +414,18 @@
     {
       "path": "sw.js",
       "status": 200,
-      "sha256": "4f1ee5f5143371727deb83bbecf313887536066fc15ee7a83f069cea4de72731"
+      "sha256": "4aec7f77a2c157d1ef8fd49e2de2989956f9ca806410513d06e6f62180a8cb29"
     }
   ],
   "worker": {
-    "scope": "https://android-ios-presentation.pages.dev/",
-    "scriptURL": "https://android-ios-presentation.pages.dev/sw.js",
+    "scope": "https://android-vs-ios.pages.dev/",
+    "scriptURL": "https://android-vs-ios.pages.dev/sw.js",
     "caches": [
-      "obsidian-b2ebac1cc151e7"
+      "obsidian-06e9ba187239c5"
     ],
     "controlled": true
   },
-  "expectedCache": "obsidian-b2ebac1cc151e7",
+  "expectedCache": "obsidian-06e9ba187239c5",
   "checks": [
     "Every deployed file SHA-256 matches dist",
     "31 slides",

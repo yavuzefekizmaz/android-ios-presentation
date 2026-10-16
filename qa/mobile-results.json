@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-16T09:29:54.871Z",
+  "url": "http://localhost:4173/",
+  "platform": "win32",
+  "browser": "156.0.8078.4",
+  "results": [
+    {
+      "test": "Mobile replacement photographs match the visible top source layer",
+      "status": "PASS"
+    },
+    {
+      "test": "Slide nine keeps four transparent layers and labels in one diagram",
+      "status": "PASS"
+    },
+    {
+      "test": "Source cards retain their related text and small icons",
+      "status": "PASS"
+    },
+    {
+      "test": "All 31 mobile slides retain source text and have no horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "test": "PDF and PowerPoint chooser opens and closes with keyboard focus restored",
+      "status": "PASS"
+    },
+    {
+      "test": "PowerPoint download is the exact original presentation",
+      "status": "PASS"
+    },
+    {
+      "test": "Both original documents remain available after an offline reload",
+      "status": "PASS"
+    },
+    {
+      "test": "No mobile console or JavaScript errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

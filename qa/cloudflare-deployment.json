@@ -1,38 +1,81 @@
 {
-  "project": "android-ios-presentation",
-  "url": "https://android-ios-presentation.pages.dev",
-  "production_branch": "main",
-  "gitConnected": false,
-  "build_config": {
-    "build_command": "npm run build",
-    "destination_dir": "dist",
-    "root_dir": "",
-    "web_analytics_tag": null,
-    "web_analytics_token": null
-  },
-  "node": {
-    "type": "plain_text",
-    "value": "22"
-  },
-  "deployment": {
-    "id": "19ae9a77-45ca-4402-979f-8beeae469a23",
-    "url": "https://19ae9a77.android-ios-presentation.pages.dev",
-    "environment": "production",
-    "latest_stage": {
-      "name": "deploy",
-      "started_on": null,
-      "ended_on": "2026-10-16T08:52:07.339496Z",
-      "status": "success"
+  "date": "2026-10-16T09:31:52.141790+00:00",
+  "deployments": [
+    {
+      "project": "android-vs-ios",
+      "url": "https://android-vs-ios.pages.dev",
+      "production_branch": "main",
+      "gitConnected": false,
+      "build_config": {
+        "build_command": "npm run build",
+        "destination_dir": "dist",
+        "root_dir": "",
+        "web_analytics_tag": null,
+        "web_analytics_token": null
+      },
+      "node": {
+        "type": "plain_text",
+        "value": "22"
+      },
+      "deployment": {
+        "id": "fd67cf6c-a4ab-4d6d-b65b-e1af65e3b17a",
+        "url": "https://fd67cf6c.android-vs-ios.pages.dev",
+        "environment": "production",
+        "latest_stage": {
+          "name": "deploy",
+          "started_on": null,
+          "ended_on": "2026-10-16T09:30:20.005775Z",
+          "status": "success"
+        },
+        "created_on": "2026-10-16T09:30:18.580777Z",
+        "deployment_trigger": {
+          "type": "ad_hoc",
+          "metadata": {
+            "branch": "main",
+            "commit_hash": "c2a33ce8bdd4f5860db475e3d29710de5f054b14",
+            "commit_message": "Publish Cloudflare Pages and fix redirected offline app shell",
+            "commit_dirty": true
+          }
+        }
+      }
     },
-    "created_on": "2026-10-16T08:52:05.627798Z",
-    "deployment_trigger": {
-      "type": "ad_hoc",
-      "metadata": {
-        "branch": "main",
-        "commit_hash": "e4b31549c3262d1cb11386e412302fc7106a5905",
-        "commit_message": "Record Windows, offline, CI and Cloudflare access verification",
-        "commit_dirty": true
+    {
+      "project": "android-ios-presentation",
+      "url": "https://android-ios-presentation.pages.dev",
+      "production_branch": "main",
+      "gitConnected": false,
+      "build_config": {
+        "build_command": "npm run build",
+        "destination_dir": "dist",
+        "root_dir": "",
+        "web_analytics_tag": null,
+        "web_analytics_token": null
+      },
+      "node": {
+        "type": "plain_text",
+        "value": "22"
+      },
+      "deployment": {
+        "id": "fc23ece1-2a59-4c7e-991c-cb2a87927584",
+        "url": "https://fc23ece1.android-ios-presentation.pages.dev",
+        "environment": "production",
+        "latest_stage": {
+          "name": "deploy",
+          "started_on": null,
+          "ended_on": "2026-10-16T09:30:39.018911Z",
+          "status": "success"
+        },
+        "created_on": "2026-10-16T09:30:37.478833Z",
+        "deployment_trigger": {
+          "type": "ad_hoc",
+          "metadata": {
+            "branch": "main",
+            "commit_hash": "c2a33ce8bdd4f5860db475e3d29710de5f054b14",
+            "commit_message": "Publish Cloudflare Pages and fix redirected offline app shell",
+            "commit_dirty": true
+          }
+        }
       }
     }
-  }
+  ]
 }

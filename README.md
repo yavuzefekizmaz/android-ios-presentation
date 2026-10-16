@@ -5,7 +5,8 @@
 **Öğretim görevlisi:** Öğr. Gör. Yıldız Taş  
 **Hazırlayanlar:** Yavuz Efe Kızmaz, Kaan İsmail Çakır, Kerem Muhammed Ece, Kaan İnan, Efe Can
 
-**Canlı sunum:** https://android-ios-presentation.pages.dev/  
+**Canlı sunum:** https://android-vs-ios.pages.dev/  
+**Önceki adres:** https://android-ios-presentation.pages.dev/ (aynı güncel sürüm)  
 **Güncel indirmeler:** https://github.com/yavuzefekizmaz/android-ios-presentation/releases/latest
 
 ## Özellikler
@@ -17,7 +18,9 @@
 - Gerçek HTML metinleri ve 6 HTML tablo; PPTX'ten çıkarılmış 34 benzersiz görsel.
 - Yerel WebP görselleri, responsive boyutlar, lazy loading ve komşu slayt hazırlığı.
 - Azaltılmış hareket desteği, klavyeyle kullanım ve daraltılabilir araç çubuğu.
-- Service Worker ile çevrimdışı önbellek, orijinal PDF ve bağımsız yerel paket.
+- Belirgin ekrana sığdırma anahtarı; üst alanda marka ve çevrimdışı durum etiketi gösterilmez.
+- Service Worker ile çevrimdışı önbellek, orijinal PDF / PowerPoint seçimi ve bağımsız yerel paket.
+- Mobilde görünür fotoğraf katmanları, tek parça yaşam döngüsü şeması ve ilişkili ikon/metin kartları.
 - Backend, hesap, veritabanı veya çalışma sırasında CDN bağımlılığı yoktur.
 
 ## Kurulum
@@ -55,7 +58,7 @@ Sunum kontrolleri kullanılmadığında soluklaşır; çıkış düğmesi görü
 
 ## Cloudflare Pages'e yayımlama
 
-Site `android-ios-presentation` Pages projesinde **Wrangler Direct Upload** ile yayımlandı. Üretim dalı `main`, derleme komutu `npm run build`, çıktı `dist/`, kök repo klasörü ve yapılandırılmış Node.js sürümü `22`'dir. Direct Upload'da derleme yerelde yapılır, statik çıktı Cloudflare'a yüklenir.
+Site kısa adres için `android-vs-ios`, önceki bağlantı için `android-ios-presentation` Pages projelerinde **Wrangler Direct Upload** ile yayımlanır. İki adres aynı statik sürümü sunar. Üretim dalı `main`, derleme komutu `npm run build`, çıktı `dist/`, kök repo klasörü ve yapılandırılmış Node.js sürümü `22`'dir. Direct Upload'da derleme yerelde yapılır, statik çıktı Cloudflare'a yüklenir. Site Cloudflare'da barındırılır; geliştirme bilgisayarının açık olması gerekmez.
 
 **GitHub'a push otomatik Pages dağıtımı başlatmaz.** Mevcut Cloudflare Git kurulumunu kullanma isteği `8000011: There is an internal issue with your Cloudflare Pages Git installation` hatasıyla reddedildi. GitHub Actions her push/PR'da derleme ve Chromium kontrollerini çalıştırır; Pages yayını ayrı bir Direct Upload işlemidir. Yeni Git/OAuth yetkisi veya ücretli hizmet kurulmadı.
 
@@ -63,6 +66,7 @@ Yetkili yerel Wrangler oturumunda güncelleme:
 
 ```powershell
 npm run build
+npx wrangler@4.151.0 pages deploy dist --project-name android-vs-ios --branch main
 npx wrangler@4.151.0 pages deploy dist --project-name android-ios-presentation --branch main
 ```
 
@@ -99,6 +103,7 @@ Slaytların metinleri, tabloları, görselleri, renkleri ve koordinatları **`sr
 - `sources/media/`: orijinal çözünürlükte çıkarılmış görseller.
 - `sources/extraction-manifest.json`: varlık eşleştirmeleri ve kaynak ölçüleri.
 - `public/documents/android-ios.pdf`: değişmeden korunan görsel referans ve yedek.
+- `public/documents/android-ios.pptx`: `sources/android-ios.pptx` ile birebir aynı, indirilebilir PowerPoint.
 - `public/assets/fonts/`: yerel fontlar ve lisansları.
 - `scripts/`: aktarım, kontrol, Service Worker ve paketleme araçları.
 - `qa/`: çalıştırılmış test sonuçları ve PDF görsel envanteri.
@@ -152,6 +157,8 @@ Public GitHub deposu: [yavuzefekizmaz/android-ios-presentation](https://github.c
 
 Önceki entegrasyonun repo oluşturma engeli, Windows bilgisayardaki yetkili GitHub CLI kullanılarak giderildi. 16 Ekim 2026 tarihinde Node.js 24.15.0 ile `npm ci`, üretim derlemesi, 20 Chromium kontrolü ve Windows başlatıcısıyla çalışan bağımsız pakette aynı 20 kontrol başarıyla tamamlandı. 319 kaynak metni/tablo hücresi PPTX ile karşılaştırıldı. Güncel kanıtlar [QA_REPORT.md](QA_REPORT.md) ve `qa/` altındadır; önceki ortamın raporları `qa/previous-environment/` içinde ayrıca etiketlenmiştir.
 
-Canlı HTTPS sürümünde de 20/20 kontrol ve 81 dosyanın SHA-256 denetimi başarılıdır. Cloudflare'ın `/index.html` yönlendirmesinden kaynaklanan çevrimdışı yeniden yükleme sorunu giderildi. Service Worker mantığı da önbellek sürümüne katılır; yönlendirilmiş HTML yanıtı temiz bir uygulama yanıtına dönüştürülerek hem ana adres hem `index.html` için saklanır. Üretimde açık kalan tarayıcıda önceki önbellekten güncel sürüme geçiş ve ardından ağ kapalı 31 slayt/görsel gezinmesi ayrıca doğrulandı.
+`npm test`, 20 temel etkileşim kontrolüne ek olarak 8 mobil düzen / belge indirme kontrolünü de çalıştırır. 31 slaydın mobil metinleri 320, 390 ve 700 px genişliklerde kaynakla karşılaştırılır. PDF ve PowerPoint'in ağ kapalı yeniden yüklemeden sonra da erişilebilir olması denetlenir. Masaüstü sunum düzeni aynı kaldı; 3, 4, 9, 13, 15 ve 31. slaytların ekran görüntüsü pikselleri yayımlanmış 1.0.1 ile birebir karşılaştırıldı (`qa/desktop-unchanged.json`).
+
+Cloudflare'ın `/index.html` yönlendirmesinden kaynaklanan çevrimdışı yeniden yükleme sorunu giderildi. Service Worker mantığı da önbellek sürümüne katılır; yönlendirilmiş HTML yanıtı temiz bir uygulama yanıtına dönüştürülerek hem ana adres hem `index.html` için saklanır. Üretimde açık kalan tarayıcıda önceki önbellekten güncel sürüme geçiş ve ardından ağ kapalı 31 slayt/görsel gezinmesi ayrıca doğrulanır.
 
 Windows'ta kurulu çevrimdışı sürümü proje kökündeki `Baslat-Sunum.bat` ile açabilirsiniz. Kaynak geliştirme için `npm run dev`, üretim önizlemesi için `npm run preview` kullanılır.

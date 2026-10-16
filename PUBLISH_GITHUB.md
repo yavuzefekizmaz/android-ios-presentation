@@ -25,7 +25,9 @@ Kaynaklar `main` dalında tutulur. GitHub Actions, push/PR ile Node.js 22 üzeri
 
 Release indirmeleri: https://github.com/yavuzefekizmaz/android-ios-presentation/releases
 
-Canlı Pages adresi: https://android-ios-presentation.pages.dev/
+Canlı kısa adres: https://android-vs-ios.pages.dev/
+
+Önceki adres de aynı sürümle çalışır: https://android-ios-presentation.pages.dev/
 
 Pages yayını yetkili yerel Wrangler oturumundan Direct Upload ile yapılır. Cloudflare'ın mevcut Git kurulumundaki `8000011` hatası nedeniyle otomatik Pages dağıtımı kurulmadı; GitHub Actions derleme ve test doğrulamasını sürdürür. Üretim çıktısı `dist/`, üretim dalı `main` ve Node.js ayarı `22`'dir. Kimlik bilgileri GitHub'a aktarılmadı.
 

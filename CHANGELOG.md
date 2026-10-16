@@ -1,5 +1,15 @@
 # Değişiklik Kaydı
 
+## 1.1.0 — 16 Ekim 2026
+
+- Üst alandaki OBSIDIAN TECH ve çevrimdışı durum yazıları kaldırıldı; ekrana sığdırma kontrolü daha belirgin bir anahtarla yenilendi.
+- Mobil okuma görünümünde kaynak kartların başlık, açıklama ve ikon ilişkileri korundu; küçük gövde metinleri okunabilir boyutta tutuldu.
+- 3 ve 4. slaytlarda üstteki doğru fotoğrafın altında kalan, kaynakta tamamen kapatılmış eski fotoğraflar mobil akıştan çıkartıldı.
+- 9. slayttaki dört saydam görsel katmanı ve numaraları tek yaşam döngüsü şeması olarak korundu.
+- PDF / özgün PowerPoint seçeneklerini sunan indirme penceresi ve çevrimdışı PPTX desteği eklendi.
+- `android-vs-ios.pages.dev` kısa adresi eklendi; önceki adres güncel sürümle çalışmayı sürdürür.
+- 8 yeni mobil/belge kontrolü ve masaüstü görünüm karşılaştırması eklendi; slayt verileri ve masaüstü/sunum düzeni değiştirilmedi.
+
 ## 1.0.1 — 16 Ekim 2026
 
 - Windows bilgisayarda kurulum, üretim derlemesi ve gerçek BAT başlatıcısı doğrulandı; yerel ve bağımsız pakette 20'şer kontrol geçti.

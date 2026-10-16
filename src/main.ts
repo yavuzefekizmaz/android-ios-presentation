@@ -40,6 +40,11 @@ document.addEventListener('click',e=>{if(!outline.hidden&&!outline.contains(e.ta
 $('collapse').onclick=()=>{$('topbar').hidden=true;$('expand').hidden=false;$('expand').focus();document.body.classList.add('bar-collapsed');setOutline(false);};
 $('expand').onclick=()=>{$('topbar').hidden=false;$('expand').hidden=true;document.body.classList.remove('bar-collapsed');$('collapse').focus();};
 $('fit').onchange=()=>document.body.classList.toggle('fit-slides',($('fit') as HTMLInputElement).checked);
+const downloads=$<HTMLDialogElement>('downloads');
+document.querySelectorAll<HTMLButtonElement>('.download-trigger').forEach(button=>{button.onclick=()=>downloads.showModal();});
+$('downloads-close').onclick=()=>downloads.close();
+downloads.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>downloads.close()));
+downloads.addEventListener('click',event=>{const r=downloads.getBoundingClientRect();if(event.target===downloads&&(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom))downloads.close();});
 function toast(message:string){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=window.setTimeout(()=>{$('toast').hidden=true;},4500);}
 async function leaveFullscreen(){
  if(!document.fullscreenElement)return;

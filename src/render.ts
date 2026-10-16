@@ -64,20 +64,85 @@ export function renderCanvas(slide:Slide,eager=false){
  }
  return canvas;
 }
+const plainText=(sh:Shape)=>sh.paragraphs?.map(p=>p.text).join(' ').trim()||'';
+const mobileVisualObserver=new ResizeObserver(entries=>{for(const entry of entries){const el=entry.target as HTMLElement;el.style.setProperty('--scale',String(entry.contentRect.width/Number(el.dataset.sourceWidth)));}});
+function mobileText(sh:Shape,kind?:string){
+ const size=Math.max(...sh.paragraphs!.flatMap(p=>p.runs.map(r=>r.size||16)));
+ const el=document.createElement(sh.role==='title'?'h2':kind==='mobile-card-title'?'h3':'div');
+ el.className=kind||(sh.role==='title'?'mobile-title':size>=18?'mobile-subtitle':'mobile-text');
+ el.dataset.shape=String(sh.id);el.append(paragraphs(sh.paragraphs!,1,true));return el;
+}
+function mobileCard(slide:Slide,container:Shape,children:Shape[]){
+ const card=document.createElement('section');card.className='mobile-card';card.dataset.container=String(container.id);
+ if(container.fill&&container.fill!=='transparent')card.style.background=container.fill;
+ if(container.w<140)card.classList.add('mobile-icon-card');
+ let heading=false;
+ for(let i=0;i<children.length;i++){
+  const sh=children[i];
+  if(sh.type==='image'){const img=imageElement(sh);img.className='mobile-icon';img.alt='';card.append(img);continue;}
+  const text=plainText(sh),next=children[i+1];
+  if(/^[✓✔✕×]$/.test(text)&&next?.type==='text'&&Math.abs(next.y-sh.y)<5){
+   const row=document.createElement('div');row.className='mobile-bullet-row';row.append(mobileText(sh,'mobile-check'),mobileText(next,'mobile-text'));card.append(row);i++;continue;
+  }
+  if(/^\d{2}$/.test(text)){card.append(mobileText(sh,'mobile-index'));continue;}
+  const isHeading=!heading&&text.length<100&&children.filter(c=>c.type==='text').length>1;
+  card.append(mobileText(sh,isHeading?'mobile-card-title':'mobile-text'));heading=true;
+ }
+ return card;
+}
+function mobileCycle(slide:Slide){
+ const fragment=document.createDocumentFragment();
+ // These four transparent image layers and their labels form ONE source diagram.
+ const indices=[6,7,10,11,14,15,18,19],bounds=slide.shapes[6];
+ const graphic=document.createElement('div');graphic.className='mobile-cycle-graphic';graphic.dataset.sourceWidth=String(bounds.w);
+ graphic.style.aspectRatio=`${bounds.w} / ${bounds.h}`;graphic.setAttribute('role','img');graphic.setAttribute('aria-label','Uygulama yaşam döngüsünün dört aşaması');
+ const canvas=renderCanvas({...slide,shapes:indices.map(i=>({...slide.shapes[i],x:slide.shapes[i].x-bounds.x,y:slide.shapes[i].y-bounds.y}))});
+ canvas.style.width=`${bounds.w}px`;canvas.style.height=`${bounds.h}px`;canvas.style.background='transparent';canvas.setAttribute('aria-hidden','true');
+ graphic.append(canvas);mobileVisualObserver.observe(graphic);fragment.append(graphic);
+ const steps=document.createElement('div');steps.className='mobile-cycle-steps';
+ for(const [title,body] of [[4,5],[8,9],[12,13],[16,17]]){
+  const card=document.createElement('section');card.className='mobile-card mobile-cycle-step';card.append(mobileText(slide.shapes[title],'mobile-card-title'),mobileText(slide.shapes[body],'mobile-text'));steps.append(card);
+ }
+ fragment.append(steps);return fragment;
+}
 export function renderMobile(slide:Slide){
  const mobile=document.createElement('div');mobile.className='mobile-content';
- for(const sh of slide.shapes){
-  if(sh.type==='text'){
-   const plain=sh.paragraphs!.map(p=>p.text).join(' ');
-   if(/^\d{2}$/.test(plain.trim())&&sh.y>500)continue;
-   const el=document.createElement(sh.role==='title'?'h2':'div');
-   const maxSize=Math.max(...sh.paragraphs!.flatMap(p=>p.runs.map(r=>r.size||16)));
-   el.className=sh.role==='title'?'mobile-title':maxSize<14?'mobile-label':maxSize>=18?'mobile-subtitle':'mobile-text';
-   el.append(paragraphs(sh.paragraphs!,1,true));mobile.append(el);
-  }else if(sh.type==='image'&&sh.w>150&&sh.h>120){const img=imageElement(sh,slide.number===1);img.className='mobile-image';img.alt=`${slide.title} — kaynak görseli`;mobile.append(img);}
-  else if(sh.type==='table'){const wrap=document.createElement('div');wrap.className='mobile-table';wrap.append(tableElement(sh,true));mobile.append(wrap);}
+ const shapes=slide.shapes,consumed=new Set<number>(),photos:HTMLImageElement[]=[];
+ const titleIndex=shapes.findIndex(sh=>sh.role==='title');
+ // The later opaque photographs replace these fully covered source photographs.
+ // Transparent diagram layers are deliberately NOT subject to this exclusion.
+ const coveredPhotos=new Set(slide.number===3?[7]:slide.number===4?[8]:[]);
+ const containers=shapes.map((sh,index)=>({sh,index})).filter(({sh})=>sh.type==='shape'&&!sh.background&&['rect','roundRect'].includes(sh.geometry||'')&&sh.w>=80&&sh.h>=40&&sh.h<500&&sh.fill&&sh.fill!=='transparent');
+ const children=new Map<number,number[]>();
+ for(const {sh:outer,index} of containers){
+  const members=shapes.flatMap((sh,i)=>{
+   const cx=sh.x+sh.w/2,cy=sh.y+sh.h/2;
+   return i>index&&['text','image'].includes(sh.type)&&cx>=outer.x-2&&cx<=outer.x+outer.w+2&&cy>=outer.y-2&&cy<=outer.y+outer.h+2?[i]:[];
+  });
+  if(members.length){children.set(index,members);members.forEach(i=>consumed.add(i));}
  }
- return mobile;
+ let iconGrid:HTMLElement|null=null;
+ for(let i=0;i<shapes.length;i++){
+  const sh=shapes[i];
+  if(slide.number===9&&i===4){mobile.append(mobileCycle(slide));}
+  if(slide.number===9&&i>=4&&i<=19)continue;
+  if(consumed.has(i))continue;
+  const members=children.get(i);
+  if(members){
+   const card=mobileCard(slide,sh,members.map(n=>shapes[n]));
+   if(sh.w<140){if(!iconGrid){iconGrid=document.createElement('div');iconGrid.className='mobile-icon-grid';mobile.append(iconGrid);}iconGrid.append(card);}
+   else {iconGrid=null;mobile.append(card);}
+  }else if(sh.type==='text'){
+   const text=plainText(sh);if(/^\d{2}$/.test(text)&&sh.y>500)continue;
+   mobile.append(mobileText(sh,i<titleIndex?'mobile-label':undefined));
+  }else if(sh.type==='image'&&sh.w>150&&sh.h>120&&!coveredPhotos.has(sh.id)){
+   const img=imageElement(sh,slide.number===1);img.className='mobile-image';img.dataset.shape=String(sh.id);img.alt=`${slide.title} — kaynak görseli`;
+   if(slide.number===25)mobile.append(img);else photos.push(img);
+  }else if(sh.type==='table'){
+   const wrap=document.createElement('div');wrap.className='mobile-table';wrap.append(tableElement(sh,true));mobile.append(wrap);
+  }
+ }
+ mobile.append(...photos);return mobile;
 }
 // Match PowerPoint's fit-to-box behavior after the local fonts have loaded.
 export function fitCanvas(canvas:HTMLElement){

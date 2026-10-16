@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-16T09:20:10.322547+00:00",
+  "reference": "published 1.0.1",
+  "status": "PASS",
+  "results": [
+    {
+      "slide": 3,
+      "status": "PASS",
+      "pixelSha256": "02e9cdb0dca88d2b60ec3d0ec03c0cec9a29b9cbe14d106f1b07e6492534e7e2"
+    },
+    {
+      "slide": 4,
+      "status": "PASS",
+      "pixelSha256": "704055321d298874014eecdb0d2168f7b66667d8033a493bb1af740d3bbbaf7f"
+    },
+    {
+      "slide": 9,
+      "status": "PASS",
+      "pixelSha256": "c77fe87122b8eb11d91b3d6b09d00d05d8c3eb1716b29302fc23e69593bca86b"
+    },
+    {
+      "slide": 13,
+      "status": "PASS",
+      "pixelSha256": "0223141e8e2d97fe7aff24010e81504f539c8050d95ea6a0af82b82b402e7021"
+    },
+    {
+      "slide": 15,
+      "status": "PASS",
+      "pixelSha256": "db339fe542cc4207046afcd85ce1795227b192944e297e9cb5ae58e7d744d423"
+    },
+    {
+      "slide": 31,
+      "status": "PASS",
+      "pixelSha256": "35e663577addc91fb5e235b7f504424bb03bf404a03e9fb39b336500e7a4e43a"
+    }
+  ]
+}
