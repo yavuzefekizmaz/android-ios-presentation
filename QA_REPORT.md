@@ -1,5 +1,9 @@
 # Kalite Kontrol Raporu
 
+## 1.1.3 sunum araçları
+
+Açık temada üst/alt sunum araçlarının tam genişlikteki açık renk arka plan geçişleri kaldırıldı. Araç çubuklarının kendisi saydamdır; düğme, sayaç ve başlık gibi küçük öğeler ayrı koyu yarı saydam yüzeylerde gösterilir. Böylece siyah fotoğrafların üstünde açık bant oluşmaz. Koyu tema ve slayt içeriği korunur.
+
 ## 1.1.2 hareket düzenlemesi
 
 Sunumda 380 ms yönlü geçiş, kısa başlık girişi, okumada 650 ms yüzey görünümü, giriş metinlerinde kademeli görünüm ve menüler/düğmelerde kısa hareket eklendi. Slaytların son yerleşimi ve renkleri değiştirilmedi. Hızlı gezinme önceki geçişi iptal eder; sürekli veya otomatik slayt hareketi yoktur. Azaltılmış hareket tercihinde CSS hareketleri ve sunum geçişi kapalıdır.

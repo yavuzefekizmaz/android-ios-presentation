@@ -1,5 +1,10 @@
 # Değişiklik Kaydı
 
+## 1.1.3 — 16 Ekim 2026
+
+- Açık temadaki sunum araçlarının tam genişlikte açık renk geçişleri kaldırıldı; siyah görseller üzerinde açık bant oluşmaz.
+- Kontroller ve küçük bilgi etiketleri ayrı koyu yarı saydam yüzeylerle okunabilir tutuldu; koyu tema korunur.
+
 ## 1.1.2 — 16 Ekim 2026
 
 - Sunum geçişlerine ileri/geri yönünü izleyen kısa kayma ve hafif yakınlaşma eklendi; başlıklar kademeli görünür.
