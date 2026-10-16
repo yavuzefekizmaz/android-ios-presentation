@@ -1,10 +1,20 @@
 {
-  "status": 403,
+  "status": 200,
+  "name": "android-ios-presentation",
+  "subdomain": "android-ios-presentation.pages.dev",
+  "production_branch": "main",
   "gitConnected": false,
-  "errors": [
-    {
-      "code": 8000077,
-      "message": "Your user email must been verified"
-    }
-  ]
+  "source": null,
+  "build_config": {
+    "build_command": "npm run build",
+    "destination_dir": "dist",
+    "root_dir": "",
+    "web_analytics_tag": null,
+    "web_analytics_token": null
+  },
+  "gitConnectionAttempt": {
+    "status": 401,
+    "code": 8000011,
+    "message": "There is an internal issue with your Cloudflare Pages Git installation."
+  }
 }

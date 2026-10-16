@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-16T08:47:58.736Z",
+  "url": "https://android-ios-presentation.pages.dev/",
+  "platform": "win32",
+  "node": "v24.15.0",
+  "browser": "156.0.8078.4",
+  "results": [
+    {
+      "test": "Default reading mode, 31 slides and six HTML tables",
+      "status": "PASS"
+    },
+    {
+      "test": "Complete offline cache readiness",
+      "status": "PASS"
+    },
+    {
+      "test": "Collapsible navigation",
+      "status": "PASS"
+    },
+    {
+      "test": "Four section anchors and 31 slide links",
+      "status": "PASS"
+    },
+    {
+      "test": "Fit-to-screen reading option",
+      "status": "PASS"
+    },
+    {
+      "test": "Start at selected slide; proportional fullscreen stage",
+      "status": "PASS"
+    },
+    {
+      "test": "Arrow, PageDown, Space, PageUp, Home and End",
+      "status": "PASS"
+    },
+    {
+      "test": "Rapid navigation and boundary clamping",
+      "status": "PASS"
+    },
+    {
+      "test": "Mouse arrows and visible exit return to current slide",
+      "status": "PASS"
+    },
+    {
+      "test": "Mode switching keeps current reading slide",
+      "status": "PASS"
+    },
+    {
+      "test": "Native fullscreen exit returns to reading",
+      "status": "PASS"
+    },
+    {
+      "test": "Fullscreen denied fallback remains navigable",
+      "status": "PASS"
+    },
+    {
+      "test": "All 31 rendered slides: HTML text, images and bounds",
+      "status": "PASS"
+    },
+    {
+      "test": "PDF fallback returns actual PDF",
+      "status": "PASS"
+    },
+    {
+      "test": "Offline reload, 31 images and presentation navigation",
+      "status": "FAIL",
+      "error": "Error: page.reload: net::ERR_FAILED\nCall log:\n\u001b[2m  - waiting for navigation until \"load\"\u001b[22m\n"
+    },
+    {
+      "test": "Mobile reading: all 31 slides, readable text, no horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "test": "Mobile section jumping and semantic tables",
+      "status": "PASS"
+    },
+    {
+      "test": "Touch swipe, rotation and visible exit",
+      "status": "PASS"
+    },
+    {
+      "test": "Reduced motion disables CSS and slide transition animations",
+      "status": "FAIL",
+      "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#slayt-1 .slide-open')\u001b[22m\n"
+    },
+    {
+      "test": "No JavaScript or console errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

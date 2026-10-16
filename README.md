@@ -5,6 +5,9 @@
 **Öğretim görevlisi:** Öğr. Gör. Yıldız Taş  
 **Hazırlayanlar:** Yavuz Efe Kızmaz, Kaan İsmail Çakır, Kerem Muhammed Ece, Kaan İnan, Efe Can
 
+**Canlı sunum:** https://android-ios-presentation.pages.dev/  
+**Güncel indirmeler:** https://github.com/yavuzefekizmaz/android-ios-presentation/releases/latest
+
 ## Özellikler
 
 - Varsayılan dikey okuma modu, 31 slayt ve doğrudan bölüm bağlantıları.
@@ -52,20 +55,18 @@ Sunum kontrolleri kullanılmadığında soluklaşır; çıkış düğmesi görü
 
 ## Cloudflare Pages'e yayımlama
 
-### GitHub üzerinden otomatik dağıtım
+Site `android-ios-presentation` Pages projesinde **Wrangler Direct Upload** ile yayımlandı. Üretim dalı `main`, derleme komutu `npm run build`, çıktı `dist/`, kök repo klasörü ve yapılandırılmış Node.js sürümü `22`'dir. Direct Upload'da derleme yerelde yapılır, statik çıktı Cloudflare'a yüklenir.
 
-1. Cloudflare panelinde **Workers & Pages → Create → Pages → Connect to Git** yolunu izleyin.
-2. `android-ios-presentation` reposunu ve `main` dalını seçin.
-3. Framework preset: **Vite**; build command: **`npm run build`**.
-4. Build output directory: **`dist`**; root directory: repo kökü.
-5. Ortam değişkeni olarak **`NODE_VERSION=22`** ayarlayın.
-6. **Save and Deploy** ile ilk dağıtımı başlatın. Sonraki `main` push'ları otomatik dağıtılır.
+**GitHub'a push otomatik Pages dağıtımı başlatmaz.** Mevcut Cloudflare Git kurulumunu kullanma isteği `8000011: There is an internal issue with your Cloudflare Pages Git installation` hatasıyla reddedildi. GitHub Actions her push/PR'da derleme ve Chromium kontrollerini çalıştırır; Pages yayını ayrı bir Direct Upload işlemidir. Yeni Git/OAuth yetkisi veya ücretli hizmet kurulmadı.
 
-GitHub Actions iş akışı her push/PR'da üretim derlemesini ve Chromium etkileşim testlerini çalıştırır; `dist/` çıktısını indirilebilir artifact olarak saklar. Cloudflare hesabı bu projeye bağlanmadan veya bir Pages projesi oluşturulmadan canlı URL oluşmaz. Repoya Cloudflare erişim anahtarı eklemeyin.
+Yetkili yerel Wrangler oturumunda güncelleme:
 
-### Doğrudan yükleme
+```powershell
+npm run build
+npx wrangler@4.151.0 pages deploy dist --project-name android-ios-presentation --branch main
+```
 
-`dist/` içeriğini Cloudflare Pages Direct Upload alanına sürükleyin veya `cloudflare-pages-dist.zip` paketini yükleyin. ZIP'in kökünde `index.html` vardır. `node_modules`, `src` veya bütün kaynak ZIP'ini dağıtım klasörü olarak yüklemeyin.
+Alternatif Direct Upload paketi `cloudflare-pages-dist.zip` dosyasıdır; kökünde `index.html` bulunur. Kimlik bilgileri repoda veya ZIP'lerde saklanmaz.
 
 ## Çevrimdışı kullanım
 
@@ -150,5 +151,7 @@ Public GitHub deposu: [yavuzefekizmaz/android-ios-presentation](https://github.c
 İndirmeler: [GitHub Releases](https://github.com/yavuzefekizmaz/android-ios-presentation/releases).
 
 Önceki entegrasyonun repo oluşturma engeli, Windows bilgisayardaki yetkili GitHub CLI kullanılarak giderildi. 16 Ekim 2026 tarihinde Node.js 24.15.0 ile `npm ci`, üretim derlemesi, 20 Chromium kontrolü ve Windows başlatıcısıyla çalışan bağımsız pakette aynı 20 kontrol başarıyla tamamlandı. 319 kaynak metni/tablo hücresi PPTX ile karşılaştırıldı. Güncel kanıtlar [QA_REPORT.md](QA_REPORT.md) ve `qa/` altındadır; önceki ortamın raporları `qa/previous-environment/` içinde ayrıca etiketlenmiştir.
+
+Canlı HTTPS sürümünde de 20/20 kontrol ve 81 dosyanın SHA-256 denetimi başarılıdır. Cloudflare'ın `/index.html` yönlendirmesinden kaynaklanan çevrimdışı yeniden yükleme sorunu giderildi. Service Worker mantığı da önbellek sürümüne katılır; yönlendirilmiş HTML yanıtı temiz bir uygulama yanıtına dönüştürülerek hem ana adres hem `index.html` için saklanır. Üretimde açık kalan tarayıcıda önceki önbellekten güncel sürüme geçiş ve ardından ağ kapalı 31 slayt/görsel gezinmesi ayrıca doğrulandı.
 
 Windows'ta kurulu çevrimdışı sürümü proje kökündeki `Baslat-Sunum.bat` ile açabilirsiniz. Kaynak geliştirme için `npm run dev`, üretim önizlemesi için `npm run preview` kullanılır.

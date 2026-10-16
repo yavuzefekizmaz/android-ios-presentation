@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-16T08:31:04.506Z",
+  "date": "2026-10-16T08:52:52.272Z",
   "platform": "win32",
   "node": "v24.15.0",
   "url": "http://localhost:4173/",
@@ -409,18 +409,18 @@
     {
       "path": "sw.js",
       "status": 200,
-      "sha256": "989b9fa3c113516ce82618633c3960e328af32e501df63c54fa204d029f8f8a2"
+      "sha256": "4f1ee5f5143371727deb83bbecf313887536066fc15ee7a83f069cea4de72731"
     }
   ],
   "worker": {
     "scope": "http://localhost:4173/",
     "scriptURL": "http://localhost:4173/sw.js",
     "caches": [
-      "obsidian-8dc9a99d481b3b"
+      "obsidian-b2ebac1cc151e7"
     ],
     "controlled": true
   },
-  "expectedCache": "obsidian-8dc9a99d481b3b",
+  "expectedCache": "obsidian-b2ebac1cc151e7",
   "checks": [
     "Every deployed file SHA-256 matches dist",
     "31 slides",
