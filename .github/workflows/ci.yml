@@ -32,3 +32,4 @@ jobs:
           path: |
             qa/test-results.json
             qa/mobile-results.json
+            qa/theme-mouse-results.json

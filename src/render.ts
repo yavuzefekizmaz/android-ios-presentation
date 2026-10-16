@@ -2,6 +2,8 @@ import type { Shape, Slide, Paragraph } from './types';
 export const BASE_WIDTH=959.981;
 export const BASE_HEIGHT=540;
 export const assetUrl=(path:string)=>new URL(path,document.baseURI).href;
+// Keep original source colors in dark mode; light mode supplies readable equivalents.
+function sourceColor(color:string,role='surface'){return /^#[0-9a-f]{6,8}$/i.test(color)?`var(--source-${role}-${color.slice(1).toLowerCase()}, ${color})`:color;}
 // PDF export uses Noto Sans for these PPTX font names. Keep that visual mapping.
 function family(name='Inter') {
  if(name==='Inter'||name==='Inter Medium'||name==='Inter SemiBold')return 'Inter';
@@ -15,7 +17,7 @@ export function paragraphs(ps:Paragraph[],scale=1,mobile=false) {
   if(!mobile){Object.assign(el.style,{textAlign:({l:'left',ctr:'center',r:'right',just:'justify'} as Record<string,string>)[p.align]||'left',fontSize:`${size}px`,lineHeight:p.lineHeightPt?`${p.lineHeightPt}px`:String(p.lineHeight*1.2),marginTop:`${p.before}px`,marginBottom:`${p.after}px`});}
   if(p.bullet){el.classList.add('bullet');const marker=document.createElement('span');marker.className='bullet-marker';marker.textContent=p.bullet;marker.setAttribute('aria-hidden','true');el.append(marker);if(!mobile)el.style.paddingLeft=`${Math.max(12,p.marginLeft)}px`;}
   for(const r of p.runs){if(r.text==='\n'){el.append(document.createElement('br'));continue;}const span=document.createElement('span');span.textContent=r.text;const weight=r.font?.startsWith('IBM')&&!r.bold&&!r.font.endsWith(' Bold')?400:r.font?.includes('SemiBold')?600:r.bold||r.font?.includes('Bold')?700:r.font?.includes('Medium')?500:400;
-   Object.assign(span.style,{fontFamily:`"${family(r.font)}", sans-serif`,fontWeight:String(weight),fontStyle:r.italic?'italic':'normal',color:r.color||'inherit'});
+   Object.assign(span.style,{fontFamily:`"${family(r.font)}", sans-serif`,fontWeight:String(weight),fontStyle:r.italic?'italic':'normal',color:sourceColor(r.color||'inherit','ink')});
    if(!mobile)Object.assign(span.style,{fontSize:`${(r.size||16)*scale}px`,letterSpacing:`${r.spacing||0}px`});
    el.append(span);
   }
@@ -37,19 +39,20 @@ function tableElement(sh:Shape,mobile=false){
  sh.rows!.forEach((row,i)=>{const tr=document.createElement('tr');if(!mobile)tr.style.height=`${row.height}px`;
   row.cells.forEach((c,j)=>{const td=document.createElement(i===0||j===0?'th':'td');if(i===0)td.setAttribute('scope','col');else if(j===0)td.setAttribute('scope','row');
    if(mobile&&i>0&&j>0)td.dataset.label=sh.rows![0].cells[j].paragraphs.map(p=>p.text).join(' ');
-   td.style.background=c.fill;if(!mobile)td.style.padding=c.padding.map(n=>`${n}px`).join(' ');
+   td.style.background=sourceColor(c.fill);if(!mobile)td.style.padding=c.padding.map(n=>`${n}px`).join(' ');
    td.append(paragraphs(c.paragraphs,1,mobile));tr.append(td);
   });(i===0?thead:tbody).append(tr);
  });table.append(thead,tbody);return table;
 }
 export function renderCanvas(slide:Slide,eager=false){
- const canvas=document.createElement('div');canvas.className='canvas';canvas.style.background=slide.background;canvas.setAttribute('aria-label',`${slide.number}. slayt: ${slide.title}`);
+ const canvas=document.createElement('div');canvas.className='canvas';canvas.style.background=sourceColor(slide.background);canvas.setAttribute('aria-label',`${slide.number}. slayt: ${slide.title}`);
  for(const sh of slide.shapes){
   const el=document.createElement('div');el.className=`node node-${sh.type}${sh.role==='title'?' slide-title':''}`;el.dataset.shape=String(sh.id);
+  if(slide.number===9&&[8,12,16,20].includes(sh.id))el.classList.add('image-overlay-label');
   Object.assign(el.style,{left:`${sh.x}px`,top:`${sh.y}px`,width:`${sh.w}px`,height:`${sh.h}px`});
   if(sh.rotation)el.style.transform=`rotate(${sh.rotation}deg)`;
-  if(sh.fill)el.style.background=sh.fill;
-  if(sh.border&&sh.border!=='transparent')el.style.border=`${sh.borderWidth||.5}px solid ${sh.border}`;
+  if(sh.fill)el.style.background=sourceColor(sh.fill);
+  if(sh.border&&sh.border!=='transparent')el.style.border=`${sh.borderWidth||.5}px solid ${sourceColor(sh.border,'line')}`;
   if(sh.geometry==='ellipse')el.style.borderRadius='50%';else if(sh.geometry==='roundRect')el.style.borderRadius=`${Math.min(sh.w,sh.h)*.09}px`;
   if(sh.type==='text'){
    if(sh.padding)el.style.padding=sh.padding.map(v=>`${v}px`).join(' ');
@@ -74,7 +77,7 @@ function mobileText(sh:Shape,kind?:string){
 }
 function mobileCard(slide:Slide,container:Shape,children:Shape[]){
  const card=document.createElement('section');card.className='mobile-card';card.dataset.container=String(container.id);
- if(container.fill&&container.fill!=='transparent')card.style.background=container.fill;
+ if(container.fill&&container.fill!=='transparent')card.style.background=sourceColor(container.fill);
  if(container.w<140)card.classList.add('mobile-icon-card');
  let heading=false;
  for(let i=0;i<children.length;i++){

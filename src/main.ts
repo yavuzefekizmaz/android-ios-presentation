@@ -1,10 +1,23 @@
 import './styles/main.css';
+import './styles/light.css';
 import data from './data/slides/slides.json';
 import type { Slide } from './types';
 import { renderCanvas,renderMobile,BASE_WIDTH,BASE_HEIGHT,assetUrl,fitCanvas } from './render';
 const slides=data as Slide[];
 const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
 const reading=$('reading'),presentation=$('presentation'),stage=$('stage'),outline=$('outline');
+function applyTheme(light:boolean){
+ document.documentElement.dataset.theme=light?'light':'dark';
+ document.querySelector('meta[name="theme-color"]')?.setAttribute('content',light?'#dfe2dc':'#0A0D14');
+ document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach(button=>{
+  const label=light?'Koyu temaya geç':'Açık temaya geç';button.setAttribute('aria-pressed',String(light));button.setAttribute('aria-label',label);button.title=label;
+  button.querySelector('[data-theme-icon]')!.textContent=light?'☾':'☀';
+  const text=button.querySelector('[data-theme-label]');if(text)text.textContent=light?'Koyu tema':'Açık tema';
+ });
+ try{localStorage.setItem('presentation-theme',light?'light':'dark');}catch{}
+}
+document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach(button=>{button.onclick=()=>applyTheme(document.documentElement.dataset.theme!=='light');});
+applyTheme(document.documentElement.dataset.theme==='light');
 let current=0,presenting=false,ownedFullscreen=false,idleTimer=0,toastTimer=0,transitionAnimation:Animation|null=null;
 let fullscreenExit:Promise<void>|null=null;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -86,6 +99,25 @@ function showSlide(){
 new ResizeObserver(()=>{if(presenting)stage.style.setProperty('--scale',String(Math.min(presentation.clientWidth/BASE_WIDTH,presentation.clientHeight/BASE_HEIGHT)));}).observe(presentation);
 function move(delta:number){const next=Math.max(0,Math.min(slides.length-1,current+delta));if(next!==current){current=next;showSlide();}wake();}
 $('previous').onclick=()=>move(-1);$('next').onclick=()=>move(1);
+const isControl=(target:EventTarget|null)=>target instanceof Element&&Boolean(target.closest('button,a,input,select,textarea'));
+presentation.addEventListener('click',event=>{
+ if(!presenting||event.button!==0||event.detail===0||isControl(event.target))return;
+ if(event instanceof PointerEvent&&event.pointerType&&event.pointerType!=='mouse')return;
+ if(!getSelection()?.isCollapsed)return;
+ move(1);
+});
+presentation.addEventListener('contextmenu',event=>{if(presenting&&!isControl(event.target)){event.preventDefault();move(-1);}});
+let wheelAmount=0,wheelLocked=false,wheelTimer=0;
+presentation.addEventListener('wheel',event=>{
+ if(!presenting||event.ctrlKey||Math.abs(event.deltaY)<=Math.abs(event.deltaX))return;
+ event.preventDefault();clearTimeout(wheelTimer);
+ wheelTimer=window.setTimeout(()=>{wheelAmount=0;wheelLocked=false;},220);
+ if(wheelLocked)return;
+ const delta=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?innerHeight:1);
+ if(Math.sign(delta)!==Math.sign(wheelAmount))wheelAmount=0;
+ wheelAmount+=delta;
+ if(Math.abs(wheelAmount)>=40){move(Math.sign(wheelAmount));wheelLocked=true;wheelAmount=0;}
+},{passive:false});
 function wake(){presentation.classList.remove('idle');clearTimeout(idleTimer);idleTimer=window.setTimeout(()=>{if(presenting&&!presentation.matches(':focus-within') || presenting&&document.activeElement===presentation)presentation.classList.add('idle');},2800);}
 presentation.addEventListener('pointermove',wake,{passive:true});presentation.addEventListener('pointerdown',wake,{passive:true});presentation.addEventListener('focusin',wake);
 let touchX=0,touchY=0;

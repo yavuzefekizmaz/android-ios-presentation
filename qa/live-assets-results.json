@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-16T09:31:10.897Z",
+  "date": "2026-10-16T09:44:39.338Z",
   "platform": "win32",
   "node": "v24.15.0",
   "url": "https://android-vs-ios.pages.dev/",
@@ -367,14 +367,14 @@
       "sha256": "e605e061a55ba1fc6d3c288eb80098c2665b79f6bae0b6e1fe7f32d6fd83d1ec"
     },
     {
-      "path": "assets/index-Cn7kU26P.css",
+      "path": "assets/index-BzsmwO3X.js",
       "status": 200,
-      "sha256": "e81e4af749e1528fd8e3bc38dd057f889507661b75ec86e8e29c7c3d4e588d30"
+      "sha256": "7bd35a633955b05139d7f7ceebfd9e2be9900beeba1ff35964e5a99e6a253285"
     },
     {
-      "path": "assets/index-DW9NYzfT.js",
+      "path": "assets/index-DXesfQ5c.css",
       "status": 200,
-      "sha256": "117a982ae2cce9202bab064926f1f5fed66c4bdfc3868031df366ef8f1b90450"
+      "sha256": "e113cefa441669e754c07838cb4eaeb64dd1bbd6885bb51c8f2eefdd56357860"
     },
     {
       "path": "documents/android-ios.pdf",
@@ -404,7 +404,7 @@
     {
       "path": "index.html",
       "status": 200,
-      "sha256": "08c21631ddf705b059417a67bcf57182916fe9980f2f0649d41520c2aa3f60da"
+      "sha256": "72cc0b6737f881538298b0d73c81c5acfdfdb4bcda305184d8fcb5517ea19cfd"
     },
     {
       "path": "manifest.webmanifest",
@@ -414,18 +414,18 @@
     {
       "path": "sw.js",
       "status": 200,
-      "sha256": "4aec7f77a2c157d1ef8fd49e2de2989956f9ca806410513d06e6f62180a8cb29"
+      "sha256": "c0f431bb13c359dd5b089025bcc77195bc4a259eb585bb95387334fd400df738"
     }
   ],
   "worker": {
     "scope": "https://android-vs-ios.pages.dev/",
     "scriptURL": "https://android-vs-ios.pages.dev/sw.js",
     "caches": [
-      "obsidian-06e9ba187239c5"
+      "obsidian-7f9be7ff19c9fa"
     ],
     "controlled": true
   },
-  "expectedCache": "obsidian-06e9ba187239c5",
+  "expectedCache": "obsidian-7f9be7ff19c9fa",
   "checks": [
     "Every deployed file SHA-256 matches dist",
     "31 slides",

@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-16T09:31:52.141790+00:00",
+  "date": "2026-10-16T09:45:09.580800+00:00",
   "deployments": [
     {
       "project": "android-vs-ios",
@@ -18,22 +18,22 @@
         "value": "22"
       },
       "deployment": {
-        "id": "fd67cf6c-a4ab-4d6d-b65b-e1af65e3b17a",
-        "url": "https://fd67cf6c.android-vs-ios.pages.dev",
+        "id": "a6320d0f-82ae-4df4-a0d0-26884678ad55",
+        "url": "https://a6320d0f.android-vs-ios.pages.dev",
         "environment": "production",
         "latest_stage": {
           "name": "deploy",
           "started_on": null,
-          "ended_on": "2026-10-16T09:30:20.005775Z",
+          "ended_on": "2026-10-16T09:43:35.73308Z",
           "status": "success"
         },
-        "created_on": "2026-10-16T09:30:18.580777Z",
+        "created_on": "2026-10-16T09:43:34.380538Z",
         "deployment_trigger": {
           "type": "ad_hoc",
           "metadata": {
             "branch": "main",
-            "commit_hash": "c2a33ce8bdd4f5860db475e3d29710de5f054b14",
-            "commit_message": "Publish Cloudflare Pages and fix redirected offline app shell",
+            "commit_hash": "99339a9e11a36c0b603021704cc25135b3819410",
+            "commit_message": "Wait for fullscreen transitions between browser checks",
             "commit_dirty": true
           }
         }
@@ -56,22 +56,22 @@
         "value": "22"
       },
       "deployment": {
-        "id": "fc23ece1-2a59-4c7e-991c-cb2a87927584",
-        "url": "https://fc23ece1.android-ios-presentation.pages.dev",
+        "id": "c1cb909c-f829-435b-8be1-3eaae7507f89",
+        "url": "https://c1cb909c.android-ios-presentation.pages.dev",
         "environment": "production",
         "latest_stage": {
           "name": "deploy",
           "started_on": null,
-          "ended_on": "2026-10-16T09:30:39.018911Z",
+          "ended_on": "2026-10-16T09:43:59.753365Z",
           "status": "success"
         },
-        "created_on": "2026-10-16T09:30:37.478833Z",
+        "created_on": "2026-10-16T09:43:58.638178Z",
         "deployment_trigger": {
           "type": "ad_hoc",
           "metadata": {
             "branch": "main",
-            "commit_hash": "c2a33ce8bdd4f5860db475e3d29710de5f054b14",
-            "commit_message": "Publish Cloudflare Pages and fix redirected offline app shell",
+            "commit_hash": "99339a9e11a36c0b603021704cc25135b3819410",
+            "commit_message": "Wait for fullscreen transitions between browser checks",
             "commit_dirty": true
           }
         }

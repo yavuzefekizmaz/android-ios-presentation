@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-16T09:47:30.196Z",
+  "url": "https://android-ios-presentation.pages.dev/",
+  "platform": "win32",
+  "browser": "156.0.8078.4",
+  "results": [
+    {
+      "test": "Fresh visits default to original dark theme even with a light OS preference",
+      "status": "PASS"
+    },
+    {
+      "test": "Light theme changes all 31 slides, text, tables and page while preserving images",
+      "status": "PASS"
+    },
+    {
+      "test": "Theme preference survives reload and presentation changes it without moving slides",
+      "status": "PASS"
+    },
+    {
+      "test": "Mouse left click advances and right click returns on slide content",
+      "status": "PASS"
+    },
+    {
+      "test": "Mouse wheel navigates one slide per gesture and ignores horizontal scrolling",
+      "status": "PASS"
+    },
+    {
+      "test": "Mouse navigation clamps first/last slides and controls avoid double navigation",
+      "status": "PASS"
+    },
+    {
+      "test": "Light mobile reading retains all slides and has no horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "test": "Saved light theme and mouse presentation work after an offline reload",
+      "status": "PASS"
+    },
+    {
+      "test": "Theme and mouse controls produce no console or JavaScript errors",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

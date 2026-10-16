@@ -19,6 +19,8 @@
 - Yerel WebP görselleri, responsive boyutlar, lazy loading ve komşu slayt hazırlığı.
 - Azaltılmış hareket desteği, klavyeyle kullanım ve daraltılabilir araç çubuğu.
 - Belirgin ekrana sığdırma anahtarı; üst alanda marka ve çevrimdışı durum etiketi gösterilmez.
+- Varsayılan koyu tema; okuma ve sunum arayüzünden seçilen, slaytları da kapsayan ve hatırlanan açık tema.
+- Sunumda sol tık / aşağı tekerlek ileri; sağ tık / yukarı tekerlek geri. Tekerlek hareketi tek slaytla sınırlandırılır.
 - Service Worker ile çevrimdışı önbellek, orijinal PDF / PowerPoint seçimi ve bağımsız yerel paket.
 - Mobilde görünür fotoğraf katmanları, tek parça yaşam döngüsü şeması ve ilişkili ikon/metin kartları.
 - Backend, hesap, veritabanı veya çalışma sırasında CDN bağımlılığı yoktur.
@@ -53,6 +55,9 @@ Sayfa okuma moduyla açılır. **Sunumu Başlat** görünürdeki slayttan başla
 | Escape veya Çıkış | Okuma moduna dön |
 | Sola / sağa kaydırma | Dokunmatik ekranda ileri / geri |
 | Tam ekran | Tarayıcı tam ekranını aç / kapat |
+| Sol tık / sağ tık (slayt üzerinde) | Sonraki / önceki slayt |
+| Tekerlek aşağı / yukarı (sunumda) | Sonraki / önceki slayt |
+| Açık tema / Koyu tema | Sayfa ve 31 slaydın renklerini değiştir; seçimi hatırla |
 
 Sunum kontrolleri kullanılmadığında soluklaşır; çıkış düğmesi görünür kalır. Telefonda sunum için yatay tutuş daha büyük görüntü sağlar. Mobil okuma modunda 16:9 yerine okunabilir metin akışı kullanılır.
 
@@ -157,7 +162,7 @@ Public GitHub deposu: [yavuzefekizmaz/android-ios-presentation](https://github.c
 
 Önceki entegrasyonun repo oluşturma engeli, Windows bilgisayardaki yetkili GitHub CLI kullanılarak giderildi. 16 Ekim 2026 tarihinde Node.js 24.15.0 ile `npm ci`, üretim derlemesi, 20 Chromium kontrolü ve Windows başlatıcısıyla çalışan bağımsız pakette aynı 20 kontrol başarıyla tamamlandı. 319 kaynak metni/tablo hücresi PPTX ile karşılaştırıldı. Güncel kanıtlar [QA_REPORT.md](QA_REPORT.md) ve `qa/` altındadır; önceki ortamın raporları `qa/previous-environment/` içinde ayrıca etiketlenmiştir.
 
-`npm test`, 20 temel etkileşim kontrolüne ek olarak 8 mobil düzen / belge indirme kontrolünü de çalıştırır. 31 slaydın mobil metinleri 320, 390 ve 700 px genişliklerde kaynakla karşılaştırılır. PDF ve PowerPoint'in ağ kapalı yeniden yüklemeden sonra da erişilebilir olması denetlenir. Masaüstü sunum düzeni aynı kaldı; 3, 4, 9, 13, 15 ve 31. slaytların ekran görüntüsü pikselleri yayımlanmış 1.0.1 ile birebir karşılaştırıldı (`qa/desktop-unchanged.json`).
+`npm test`, 20 temel, 8 mobil/belge ve 9 tema/fare kontrolünü (toplam 37) çalıştırır. 31 slaydın mobil metinleri 320, 390 ve 700 px genişliklerde kaynakla karşılaştırılır. PDF ve PowerPoint'in ağ kapalı yeniden yüklemeden sonra da erişilebilir olması denetlenir. Masaüstü sunum düzeni aynı kaldı; 3, 4, 9, 13, 15 ve 31. slaytların ekran görüntüsü pikselleri yayımlanmış 1.0.1 ile birebir karşılaştırıldı (`qa/desktop-unchanged.json`).
 
 Cloudflare'ın `/index.html` yönlendirmesinden kaynaklanan çevrimdışı yeniden yükleme sorunu giderildi. Service Worker mantığı da önbellek sürümüne katılır; yönlendirilmiş HTML yanıtı temiz bir uygulama yanıtına dönüştürülerek hem ana adres hem `index.html` için saklanır. Üretimde açık kalan tarayıcıda önceki önbellekten güncel sürüme geçiş ve ardından ağ kapalı 31 slayt/görsel gezinmesi ayrıca doğrulanır.
 

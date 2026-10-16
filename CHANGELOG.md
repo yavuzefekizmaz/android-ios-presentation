@@ -2,6 +2,9 @@
 
 ## 1.1.0 — 16 Ekim 2026
 
+- Varsayılan koyu temayı koruyan, tüm slaytları ve arayüzü kapsayan platin/taş grisi tonlarında kalıcı açık tema seçimi eklendi. Özgün fotoğraflara renk filtresi uygulanmaz.
+- Sunumda fare tekerleği, sol tıkla ileri ve sağ tıkla geri gezinme eklendi; düğmeler çift gezinme üretmez.
+- Tema/fare/çevrimdışı davranışı için 9 ek kontrol eklendi; toplam 37 kontrol.
 - Üst alandaki OBSIDIAN TECH ve çevrimdışı durum yazıları kaldırıldı; ekrana sığdırma kontrolü daha belirgin bir anahtarla yenilendi.
 - Mobil okuma görünümünde kaynak kartların başlık, açıklama ve ikon ilişkileri korundu; küçük gövde metinleri okunabilir boyutta tutuldu.
 - 3 ve 4. slaytlarda üstteki doğru fotoğrafın altında kalan, kaynakta tamamen kapatılmış eski fotoğraflar mobil akıştan çıkartıldı.
