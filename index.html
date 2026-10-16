@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A0D14" />
+  <meta name="description" content="İstinye Üniversitesi İşletim Sistemlerine Giriş dersi için Android ve iOS karşılaştırması. 31 slayt, okuma ve sunum modu." />
+  <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icon-192.png" />
+  <title>Android ve iOS Karşılaştırması · İstinye Üniversitesi</title>
+</head>
+<body>
+  <a class="skip-link" href="#slides">Slaytlara geç</a>
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#" aria-label="Sayfa başına dön"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><span>Android ve iOS <b>Karşılaştırması</b></span></a>
+    <nav class="toolbar" aria-label="Sunum araçları">
+      <button class="button primary" id="start">Sunumu Başlat <span aria-hidden="true">↗</span></button>
+      <button class="button quiet" id="fullscreen" aria-label="Tam ekranı aç veya kapat">⛶ <span>Tam ekran</span></button>
+      <a class="button quiet pdf" aria-label="Orijinal PDF’yi aç veya indir" href="./documents/android-ios.pdf" target="_blank" rel="noopener">↓ <span>PDF'yi Aç / İndir</span></a>
+      <button class="button quiet" id="outline-toggle" aria-label="Bölümlere git" aria-expanded="false" aria-controls="outline">☷ <span>Bölümlere Git</span></button>
+    </nav>
+    <button class="collapse-button" id="collapse" aria-expanded="true" aria-label="Gezinme çubuğunu daralt" title="Gezinme çubuğunu daralt">⌃</button>
+  </header>
+  <button class="expand-button button" id="expand" hidden aria-label="Gezinme çubuğunu aç">☰ Araçlar</button>
+  <aside class="outline" id="outline" aria-label="Bölümler ve slaytlar" hidden>
+    <div class="outline-head"><span>İÇİNDEKİLER</span><button id="outline-close" class="icon-button" aria-label="İçindekileri kapat">×</button></div>
+    <nav id="sections" aria-label="Bölüm bağlantıları"></nav>
+    <div class="outline-label">TÜM SLAYTLAR</div>
+    <nav id="slide-links" aria-label="Slayt bağlantıları"></nav>
+  </aside>
+  <main id="reading">
+    <div class="intro">
+      <div class="eyebrow"><span class="status-dot"></span> OBSIDIAN TECH <span class="intro-divider">/</span> İŞLETİM SİSTEMLERİNE GİRİŞ</div>
+      <div class="intro-row"><div><h1>Android ve iOS Karşılaştırması</h1><p>İki ekosistemin mimarisi, güvenliği ve kullanıcı deneyimi.</p></div><span class="deck-badge">31 <span>SLAYT</span></span></div>
+      <div class="intro-bottom"><span>İstinye Üniversitesi <span class="muted-dot">·</span> Bilgisayar Programcılığı</span><span class="offline-status" id="offline-status" role="status" aria-live="polite">Çevrimdışı yedek hazırlanıyor…</span></div>
+    </div>
+    <div class="reading-options"><span><span class="status-dot"></span> OKUMA MODU <span class="option-note">Kaydırarak keşfedin</span></span><label class="fit-option"><input type="checkbox" id="fit" /> Ekrana sığdır</label></div>
+    <div id="slides" class="slides"></div>
+    <footer class="page-footer"><span>Android ve iOS Karşılaştırması</span><a href="./documents/android-ios.pdf" download="Android-iOS-Sunum.pdf">Orijinal PDF'yi indir ↓</a><a href="#">Başa dön ↑</a></footer>
+  </main>
+  <div id="presentation" class="presentation" hidden role="dialog" aria-modal="true" aria-label="Sunum modu" tabindex="-1">
+    <div id="stage" class="stage"></div>
+    <div class="presentation-top present-ui"><span id="present-title"></span><button class="button exit" id="exit">Çıkış <kbd>Esc</kbd></button></div>
+    <div class="presentation-bottom present-ui"><span class="key-hint">← → <span>ile gezinin</span></span><div class="slide-controls"><button class="icon-button" id="previous" aria-label="Önceki slayt">←</button><output id="counter" aria-live="polite">01 / 31</output><button class="icon-button" id="next" aria-label="Sonraki slayt">→</button></div><button class="icon-button" id="present-fullscreen" aria-label="Tam ekranı aç veya kapat">⛶</button></div>
+    <div class="presentation-progress" aria-hidden="true"><i id="progress"></i></div>
+  </div>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <noscript>Bu interaktif sunum için JavaScript gereklidir. <a href="./documents/android-ios.pdf">Orijinal 31 slaytlık PDF'yi açın.</a></noscript>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

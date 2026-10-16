@@ -1,0 +1,17 @@
+node_modules/
+dist/
+offline/
+*.zip
+.env*
+!.env.example
+.DS_Store
+*.log
+qa/browser-*.png
+qa/comparison-*.jpg
+qa/asset-*.jpg
+test-results/
+playwright-report/
+qa/slide-*.png
+__pycache__/
+.wrangler/
+.dev.vars*

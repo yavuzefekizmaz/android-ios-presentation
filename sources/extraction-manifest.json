@@ -1,0 +1,540 @@
+{
+  "slides": 31,
+  "width": 959.976,
+  "height": 540.0,
+  "assets": {
+    "39be7b4c0343d2": {
+      "original": "sources/media/39be7b4c0343d2.png",
+      "width": 207,
+      "height": 207,
+      "variants": [
+        {
+          "src": "assets/images/39be7b4c0343d2-207.webp",
+          "width": 207,
+          "height": 207
+        }
+      ]
+    },
+    "de8dd3e286afcf": {
+      "original": "sources/media/de8dd3e286afcf.jpg",
+      "width": 2394,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/de8dd3e286afcf-800.webp",
+          "width": 800,
+          "height": 1083
+        },
+        {
+          "src": "assets/images/de8dd3e286afcf-1600.webp",
+          "width": 1600,
+          "height": 2165
+        }
+      ]
+    },
+    "21dc6c17c84e87": {
+      "original": "sources/media/21dc6c17c84e87.jpg",
+      "width": 2083,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/21dc6c17c84e87-800.webp",
+          "width": 800,
+          "height": 1244
+        },
+        {
+          "src": "assets/images/21dc6c17c84e87-1600.webp",
+          "width": 1600,
+          "height": 2489
+        }
+      ]
+    },
+    "719bcba89d789c": {
+      "original": "sources/media/719bcba89d789c.jpg",
+      "width": 2097,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/719bcba89d789c-800.webp",
+          "width": 800,
+          "height": 1236
+        },
+        {
+          "src": "assets/images/719bcba89d789c-1600.webp",
+          "width": 1600,
+          "height": 2472
+        }
+      ]
+    },
+    "9d0504119a47fb": {
+      "original": "sources/media/9d0504119a47fb.jpg",
+      "width": 2286,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/9d0504119a47fb-800.webp",
+          "width": 800,
+          "height": 1134
+        },
+        {
+          "src": "assets/images/9d0504119a47fb-1600.webp",
+          "width": 1600,
+          "height": 2268
+        }
+      ]
+    },
+    "add85c376347e5": {
+      "original": "sources/media/add85c376347e5.jpg",
+      "width": 2304,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/add85c376347e5-800.webp",
+          "width": 800,
+          "height": 1125
+        },
+        {
+          "src": "assets/images/add85c376347e5-1600.webp",
+          "width": 1600,
+          "height": 2250
+        }
+      ]
+    },
+    "c8d3c85ef6262e": {
+      "original": "sources/media/c8d3c85ef6262e.jpg",
+      "width": 2286,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/c8d3c85ef6262e-800.webp",
+          "width": 800,
+          "height": 1134
+        },
+        {
+          "src": "assets/images/c8d3c85ef6262e-1600.webp",
+          "width": 1600,
+          "height": 2268
+        }
+      ]
+    },
+    "556e14fc7e4868": {
+      "original": "sources/media/556e14fc7e4868.png",
+      "width": 1071,
+      "height": 1071,
+      "variants": [
+        {
+          "src": "assets/images/556e14fc7e4868-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "assets/images/556e14fc7e4868-1071.webp",
+          "width": 1071,
+          "height": 1071
+        }
+      ]
+    },
+    "75fa25722b99ab": {
+      "original": "sources/media/75fa25722b99ab.png",
+      "width": 1071,
+      "height": 1071,
+      "variants": [
+        {
+          "src": "assets/images/75fa25722b99ab-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "assets/images/75fa25722b99ab-1071.webp",
+          "width": 1071,
+          "height": 1071
+        }
+      ]
+    },
+    "7873d797b2afa3": {
+      "original": "sources/media/7873d797b2afa3.png",
+      "width": 1071,
+      "height": 1071,
+      "variants": [
+        {
+          "src": "assets/images/7873d797b2afa3-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "assets/images/7873d797b2afa3-1071.webp",
+          "width": 1071,
+          "height": 1071
+        }
+      ]
+    },
+    "151732215e1bf3": {
+      "original": "sources/media/151732215e1bf3.png",
+      "width": 1071,
+      "height": 1071,
+      "variants": [
+        {
+          "src": "assets/images/151732215e1bf3-800.webp",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "assets/images/151732215e1bf3-1071.webp",
+          "width": 1071,
+          "height": 1071
+        }
+      ]
+    },
+    "92fc4edddae85b": {
+      "original": "sources/media/92fc4edddae85b.jpg",
+      "width": 2533,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/92fc4edddae85b-800.webp",
+          "width": 800,
+          "height": 1023
+        },
+        {
+          "src": "assets/images/92fc4edddae85b-1600.webp",
+          "width": 1600,
+          "height": 2047
+        }
+      ]
+    },
+    "18a5b80ddb7614": {
+      "original": "sources/media/18a5b80ddb7614.jpg",
+      "width": 2592,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/18a5b80ddb7614-800.webp",
+          "width": 800,
+          "height": 1000
+        },
+        {
+          "src": "assets/images/18a5b80ddb7614-1600.webp",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    "555a5f4a885871": {
+      "original": "sources/media/555a5f4a885871.png",
+      "width": 240,
+      "height": 240,
+      "variants": [
+        {
+          "src": "assets/images/555a5f4a885871-240.webp",
+          "width": 240,
+          "height": 240
+        }
+      ]
+    },
+    "46e593a360e362": {
+      "original": "sources/media/46e593a360e362.png",
+      "width": 240,
+      "height": 240,
+      "variants": [
+        {
+          "src": "assets/images/46e593a360e362-240.webp",
+          "width": 240,
+          "height": 240
+        }
+      ]
+    },
+    "5bc7cacec132a1": {
+      "original": "sources/media/5bc7cacec132a1.png",
+      "width": 240,
+      "height": 240,
+      "variants": [
+        {
+          "src": "assets/images/5bc7cacec132a1-240.webp",
+          "width": 240,
+          "height": 240
+        }
+      ]
+    },
+    "0a29bc1f1b6245": {
+      "original": "sources/media/0a29bc1f1b6245.png",
+      "width": 240,
+      "height": 240,
+      "variants": [
+        {
+          "src": "assets/images/0a29bc1f1b6245-240.webp",
+          "width": 240,
+          "height": 240
+        }
+      ]
+    },
+    "3830320de164fe": {
+      "original": "sources/media/3830320de164fe.jpg",
+      "width": 2592,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/3830320de164fe-800.webp",
+          "width": 800,
+          "height": 1000
+        },
+        {
+          "src": "assets/images/3830320de164fe-1600.webp",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    "1f9a8b4f14b6cf": {
+      "original": "sources/media/1f9a8b4f14b6cf.png",
+      "width": 240,
+      "height": 240,
+      "variants": [
+        {
+          "src": "assets/images/1f9a8b4f14b6cf-240.webp",
+          "width": 240,
+          "height": 240
+        }
+      ]
+    },
+    "8b6511ec072605": {
+      "original": "sources/media/8b6511ec072605.png",
+      "width": 240,
+      "height": 240,
+      "variants": [
+        {
+          "src": "assets/images/8b6511ec072605-240.webp",
+          "width": 240,
+          "height": 240
+        }
+      ]
+    },
+    "e6a4459aaf0b90": {
+      "original": "sources/media/e6a4459aaf0b90.png",
+      "width": 240,
+      "height": 240,
+      "variants": [
+        {
+          "src": "assets/images/e6a4459aaf0b90-240.webp",
+          "width": 240,
+          "height": 240
+        }
+      ]
+    },
+    "691b5bb1ad40c1": {
+      "original": "sources/media/691b5bb1ad40c1.png",
+      "width": 240,
+      "height": 240,
+      "variants": [
+        {
+          "src": "assets/images/691b5bb1ad40c1-240.webp",
+          "width": 240,
+          "height": 240
+        }
+      ]
+    },
+    "83841c7e616beb": {
+      "original": "sources/media/83841c7e616beb.jpg",
+      "width": 2592,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/83841c7e616beb-800.webp",
+          "width": 800,
+          "height": 1000
+        },
+        {
+          "src": "assets/images/83841c7e616beb-1600.webp",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    "f0eeaab93c8980": {
+      "original": "sources/media/f0eeaab93c8980.jpg",
+      "width": 2592,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/f0eeaab93c8980-800.webp",
+          "width": 800,
+          "height": 1000
+        },
+        {
+          "src": "assets/images/f0eeaab93c8980-1600.webp",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    "893fc70ef7c87b": {
+      "original": "sources/media/893fc70ef7c87b.jpg",
+      "width": 2592,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/893fc70ef7c87b-800.webp",
+          "width": 800,
+          "height": 1000
+        },
+        {
+          "src": "assets/images/893fc70ef7c87b-1600.webp",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    "8ba9981fd6d1b6": {
+      "original": "sources/media/8ba9981fd6d1b6.jpg",
+      "width": 2592,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/8ba9981fd6d1b6-800.webp",
+          "width": 800,
+          "height": 1000
+        },
+        {
+          "src": "assets/images/8ba9981fd6d1b6-1600.webp",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    "0e4f3536bc9803": {
+      "original": "sources/media/0e4f3536bc9803.jpg",
+      "width": 2592,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/0e4f3536bc9803-800.webp",
+          "width": 800,
+          "height": 1000
+        },
+        {
+          "src": "assets/images/0e4f3536bc9803-1600.webp",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    "fab05748c02e98": {
+      "original": "sources/media/fab05748c02e98.jpg",
+      "width": 2691,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/fab05748c02e98-800.webp",
+          "width": 800,
+          "height": 963
+        },
+        {
+          "src": "assets/images/fab05748c02e98-1600.webp",
+          "width": 1600,
+          "height": 1926
+        }
+      ]
+    },
+    "6fb183262c5328": {
+      "original": "sources/media/6fb183262c5328.jpg",
+      "width": 2497,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/6fb183262c5328-800.webp",
+          "width": 800,
+          "height": 1038
+        },
+        {
+          "src": "assets/images/6fb183262c5328-1600.webp",
+          "width": 1600,
+          "height": 2076
+        }
+      ]
+    },
+    "d947f0b6b0b977": {
+      "original": "sources/media/d947f0b6b0b977.jpg",
+      "width": 2497,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/d947f0b6b0b977-800.webp",
+          "width": 800,
+          "height": 1038
+        },
+        {
+          "src": "assets/images/d947f0b6b0b977-1600.webp",
+          "width": 1600,
+          "height": 2076
+        }
+      ]
+    },
+    "eedd139ee4e46f": {
+      "original": "sources/media/eedd139ee4e46f.jpg",
+      "width": 2776,
+      "height": 1561,
+      "variants": [
+        {
+          "src": "assets/images/eedd139ee4e46f-800.webp",
+          "width": 800,
+          "height": 450
+        },
+        {
+          "src": "assets/images/eedd139ee4e46f-1600.webp",
+          "width": 1600,
+          "height": 900
+        }
+      ]
+    },
+    "a2a294b5a5edea": {
+      "original": "sources/media/a2a294b5a5edea.jpg",
+      "width": 2592,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/a2a294b5a5edea-800.webp",
+          "width": 800,
+          "height": 1000
+        },
+        {
+          "src": "assets/images/a2a294b5a5edea-1600.webp",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    "f8ef5dc948b6bb": {
+      "original": "sources/media/f8ef5dc948b6bb.jpg",
+      "width": 2497,
+      "height": 3240,
+      "variants": [
+        {
+          "src": "assets/images/f8ef5dc948b6bb-800.webp",
+          "width": 800,
+          "height": 1038
+        },
+        {
+          "src": "assets/images/f8ef5dc948b6bb-1600.webp",
+          "width": 1600,
+          "height": 2076
+        }
+      ]
+    },
+    "a938a4192fd80b": {
+      "original": "sources/media/a938a4192fd80b.jpg",
+      "width": 2659,
+      "height": 2227,
+      "variants": [
+        {
+          "src": "assets/images/a938a4192fd80b-800.webp",
+          "width": 800,
+          "height": 670
+        },
+        {
+          "src": "assets/images/a938a4192fd80b-1600.webp",
+          "width": 1600,
+          "height": 1340
+        }
+      ]
+    }
+  }
+}

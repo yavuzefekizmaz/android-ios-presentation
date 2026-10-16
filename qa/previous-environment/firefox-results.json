@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-16T07:56:05.596Z",
+  "browser": "157.0",
+  "status": "PASS",
+  "checks": [
+    "31 reading slides",
+    "6 HTML tables",
+    "31 presentation slides and images",
+    "Home/End/Escape",
+    "Complete offline cache",
+    "Offline reload and presentation",
+    "390px reading layout",
+    "No JavaScript errors"
+  ]
+}

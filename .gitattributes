@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.bat text eol=crlf
+public/** -text
+sources/** -text
+src/data/slides/slides.json -text
