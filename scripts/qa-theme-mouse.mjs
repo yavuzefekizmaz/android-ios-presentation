@@ -39,6 +39,23 @@ try{
   await page.locator('#stage').click({button:'right',position:{x:500,y:250}});await count(4);
   await page.locator('#next').click();await count(5);await page.locator('#previous').click();await count(4);
  });
+ await test('Selected text, double clicks and context menus never interrupt slide clicks',async()=>{
+  await page.locator('#stage').evaluate(el=>{const range=document.createRange();range.selectNodeContents(el.querySelector('.slide-title'));getSelection().addRange(range);});
+  await page.locator('#stage .slide-title').click();await count(5);
+  assert.ok(await page.evaluate(()=>getSelection().isCollapsed));
+  await page.keyboard.press('PageUp');await count(4);
+  await page.locator('#stage .slide-title').dblclick();await count(6);
+  assert.ok(await page.evaluate(()=>getSelection().isCollapsed));
+  const blocked=await page.locator('#stage').evaluate(el=>['selectstart','dragstart','dblclick'].map(type=>!el.dispatchEvent(new Event(type,{bubbles:true,cancelable:true}))));
+  assert.deepEqual(blocked,[true,true,true]);await count(6);
+  assert.equal(await page.locator('#stage .slide-title').evaluate(el=>getComputedStyle(el).userSelect),'none');
+  const contentMenu=await page.locator('#stage').evaluate(el=>!el.dispatchEvent(new MouseEvent('contextmenu',{bubbles:true,cancelable:true,button:2})));
+  assert.equal(contentMenu,true);await count(5);
+  await page.locator('#previous').click();await count(4);
+  const buttonMenu=await page.locator('#next').evaluate(el=>!el.dispatchEvent(new MouseEvent('contextmenu',{bubbles:true,cancelable:true,button:2})));
+  assert.equal(buttonMenu,true);await count(4);
+  assert.notEqual(await page.locator('#slayt-1 .slide-title').first().evaluate(el=>getComputedStyle(el).userSelect),'none');
+ });
  await test('Mouse wheel navigates one slide per gesture and ignores horizontal scrolling',async()=>{
   await page.mouse.move(720,500);await page.mouse.wheel(0,120);await count(5);
   await page.mouse.wheel(0,120);await page.mouse.wheel(0,120);await count(5);
@@ -49,6 +66,12 @@ try{
   await page.keyboard.press('End');await count(31);await page.locator('#stage').click({position:{x:500,y:250}});await count(31);
   await page.keyboard.press('Home');await count(1);await page.locator('#stage').click({button:'right',position:{x:500,y:250}});await count(1);
   await page.locator('#exit').click();assert.equal(await page.locator('#presentation').isVisible(),false);await page.waitForFunction(()=>!document.fullscreenElement);
+ });
+ await test('F11 and Escape exit presentation and release fullscreen',async()=>{
+  for(const key of ['F11','Escape']){
+   await page.locator('#slayt-4 .slide-open').click();await count(4);await page.waitForFunction(()=>Boolean(document.fullscreenElement));
+   await page.keyboard.press(key);await page.waitForFunction(()=>document.querySelector('#presentation').hidden&&!document.fullscreenElement);
+  }
  });
  await test('Light mobile reading retains all slides and has no horizontal overflow',async()=>{
   for(const width of [320,390,700]){await page.setViewportSize({width,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.ok(await theme().isVisible());}

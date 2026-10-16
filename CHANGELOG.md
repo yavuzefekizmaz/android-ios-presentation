@@ -1,5 +1,11 @@
 # Değişiklik Kaydı
 
+## 1.1.4 — 16 Ekim 2026
+
+- Sunumda metin seçimi, çift tıkla seçim/menü ve görsel sürükleme engellendi; eski bir seçim slayt geçişini durdurmaz.
+- Sağ tık menüsü sunumun tamamında engellenir; slaytta sağ tık geri gider, düğmelerin sağ tıkı slaytı değiştirmez.
+- F11, Escape gibi sunumdan çıkış yapar. Normal okuma modunda metin seçimi korunur.
+- Seçim/çift tık/menü ve F11/Escape davranışı için iki kontrol eklendi; toplam 39 kontrol.
 ## 1.1.3 — 16 Ekim 2026
 
 - Açık temadaki sunum araçlarının tam genişlikte açık renk geçişleri kaldırıldı; siyah görseller üzerinde açık bant oluşmaz.

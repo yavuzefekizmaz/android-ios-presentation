@@ -1,5 +1,9 @@
 # Kalite Kontrol Raporu
 
+## 1.1.4 fare ve seçim düzeltmesi
+
+Sunum yüzeyi metin seçimi ve görsel sürüklemeyi engeller. Sol tık önceki seçimi temizleyerek ilerler; çift tık iki normal tık olarak ilerler, ek bir geçiş üretmez. Sağ tık menüsü düğmeler dâhil engellenir; yalnızca slayt yüzeyinde geri gider. F11 ve Escape sunumdan çıkar ve uygulamanın açtığı tam ekranı bırakır. Okuma görünümünde metin seçimi devam eder. İki yeni kontrolle `npm test` toplamı 39 oldu. F11 testi Playwright Chromium üzerinden yapılır; işletim sistemi veya tarayıcı tarafından sayfaya iletilmeyen kısayollar web sayfasının denetiminde değildir.
+
 ## 1.1.3 sunum araçları
 
 Açık temada üst/alt sunum araçlarının tam genişlikteki açık renk arka plan geçişleri kaldırıldı. Araç çubuklarının kendisi saydamdır; düğme, sayaç ve başlık gibi küçük öğeler ayrı koyu yarı saydam yüzeylerde gösterilir. Böylece siyah fotoğrafların üstünde açık bant oluşmaz. Koyu tema ve slayt içeriği korunur.

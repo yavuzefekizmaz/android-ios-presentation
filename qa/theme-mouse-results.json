@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-16T10:05:27.436Z",
+  "date": "2026-10-16T10:12:33.069Z",
   "url": "http://localhost:4173/",
   "platform": "win32",
   "browser": "156.0.8078.4",
@@ -21,11 +21,19 @@
       "status": "PASS"
     },
     {
+      "test": "Selected text, double clicks and context menus never interrupt slide clicks",
+      "status": "PASS"
+    },
+    {
       "test": "Mouse wheel navigates one slide per gesture and ignores horizontal scrolling",
       "status": "PASS"
     },
     {
       "test": "Mouse navigation clamps first/last slides and controls avoid double navigation",
+      "status": "PASS"
+    },
+    {
+      "test": "F11 and Escape exit presentation and release fullscreen",
       "status": "PASS"
     },
     {

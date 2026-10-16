@@ -80,3 +80,6 @@ main{max-width:1440px;margin:auto;padding:0 60px}.intro{padding:52px 0 28px}.eye
 @keyframes content-arrive{from{opacity:.45;translate:0 9px}to{opacity:1;translate:0 0}}
 @keyframes slide-arrive{from{opacity:.65;translate:0 22px}to{opacity:1;translate:0 0}}
 @keyframes panel-arrive{from{opacity:.4;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+/* Presentation content is a navigation surface; reading mode stays selectable. */
+.presentation,.presentation *{user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.presentation img{-webkit-user-drag:none}

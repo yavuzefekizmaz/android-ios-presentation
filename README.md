@@ -52,7 +52,7 @@ Sayfa okuma moduyla açılır. **Sunumu Başlat** görünürdeki slayttan başla
 | Sağ ok, PageDown, Space | Sonraki slayt |
 | Sol ok, PageUp | Önceki slayt |
 | Home / End | İlk / son slayt |
-| Escape veya Çıkış | Okuma moduna dön |
+| Escape, F11 veya Çıkış | Okuma moduna dön |
 | Sola / sağa kaydırma | Dokunmatik ekranda ileri / geri |
 | Tam ekran | Tarayıcı tam ekranını aç / kapat |
 | Sol tık / sağ tık (slayt üzerinde) | Sonraki / önceki slayt |
@@ -162,7 +162,7 @@ Public GitHub deposu: [yavuzefekizmaz/android-ios-presentation](https://github.c
 
 Önceki entegrasyonun repo oluşturma engeli, Windows bilgisayardaki yetkili GitHub CLI kullanılarak giderildi. 16 Ekim 2026 tarihinde Node.js 24.15.0 ile `npm ci`, üretim derlemesi, 20 Chromium kontrolü ve Windows başlatıcısıyla çalışan bağımsız pakette aynı 20 kontrol başarıyla tamamlandı. 319 kaynak metni/tablo hücresi PPTX ile karşılaştırıldı. Güncel kanıtlar [QA_REPORT.md](QA_REPORT.md) ve `qa/` altındadır; önceki ortamın raporları `qa/previous-environment/` içinde ayrıca etiketlenmiştir.
 
-`npm test`, 20 temel, 8 mobil/belge ve 9 tema/fare kontrolünü (toplam 37) çalıştırır. 31 slaydın mobil metinleri 320, 390 ve 700 px genişliklerde kaynakla karşılaştırılır. PDF ve PowerPoint'in ağ kapalı yeniden yüklemeden sonra da erişilebilir olması denetlenir. Masaüstü sunum düzeni aynı kaldı; 3, 4, 9, 13, 15 ve 31. slaytların ekran görüntüsü pikselleri yayımlanmış 1.0.1 ile birebir karşılaştırıldı (`qa/desktop-unchanged.json`).
+`npm test`, 20 temel, 8 mobil/belge ve 11 tema/fare kontrolünü (toplam 39) çalıştırır. Seçili metin, çift tık, sağ tık menüsü, F11 ve Escape davranışları da denetlenir. 31 slaydın mobil metinleri 320, 390 ve 700 px genişliklerde kaynakla karşılaştırılır. PDF ve PowerPoint'in ağ kapalı yeniden yüklemeden sonra da erişilebilir olması denetlenir. Masaüstü sunum düzeni aynı kaldı; 3, 4, 9, 13, 15 ve 31. slaytların ekran görüntüsü pikselleri yayımlanmış 1.0.1 ile birebir karşılaştırıldı (`qa/desktop-unchanged.json`).
 
 Cloudflare'ın `/index.html` yönlendirmesinden kaynaklanan çevrimdışı yeniden yükleme sorunu giderildi. Service Worker mantığı da önbellek sürümüne katılır; yönlendirilmiş HTML yanıtı temiz bir uygulama yanıtına dönüştürülerek hem ana adres hem `index.html` için saklanır. Üretimde açık kalan tarayıcıda önceki önbellekten güncel sürüme geçiş ve ardından ağ kapalı 31 slayt/görsel gezinmesi ayrıca doğrulanır.
 
