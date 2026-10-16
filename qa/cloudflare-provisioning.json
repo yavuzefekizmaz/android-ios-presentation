@@ -1,0 +1,10 @@
+{
+  "status": 403,
+  "gitConnected": false,
+  "errors": [
+    {
+      "code": 8000077,
+      "message": "Your user email must been verified"
+    }
+  ]
+}

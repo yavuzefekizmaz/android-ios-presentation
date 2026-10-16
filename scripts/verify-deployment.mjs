@@ -41,6 +41,7 @@ assert.equal(await page.locator('.slide-article').count(),31);
 await page.screenshot({path:'qa/browser-reading.png'});
 await page.locator('#start').click();
 await page.waitForFunction(()=>Boolean(document.fullscreenElement));
+await page.locator('#stage').evaluate(el=>Promise.all(el.getAnimations().map(a=>a.finished)));
 await page.screenshot({path:'qa/browser-presentation.png'});
 await page.keyboard.press('Escape');
 await context.setOffline(true);

@@ -26,9 +26,9 @@ Bu rapor bu bilgisayarda gerçekten çalıştırılan kontrollere aittir. Öncek
 
 ## GitHub ve Cloudflare
 
-Public depo GitHub CLI ile `yavuzefekizmaz/android-ios-presentation` olarak oluşturuldu. Önceki `createRepository` entegrasyon engeli giderildi. GitHub Actions, kaynak push'u ve Release sonuçları yayımlama tamamlandığında bu bölüme kaydedilir.
+Public depo GitHub CLI ile `yavuzefekizmaz/android-ios-presentation` olarak oluşturuldu ve kaynaklar `main` dalına push edildi. Önceki `createRepository` entegrasyon engeli giderildi. GitHub Actions, Node.js 22 üzerinde derlemeyi ve 20 Chromium kontrolünü başarıyla tamamladı: https://github.com/yavuzefekizmaz/android-ios-presentation/actions/runs/38874563718 . Kanıt: `qa/github-actions.json`.
 
-Cloudflare CLI ilk iki OAuth localhost dönüşünü zaman aşımı nedeniyle alamadı. Kalıcı Pages yayını ve canlı HTTPS testleri henüz tamamlanmadı; cihaz koduyla hesap yetkilendirmesi bekleniyor.
+Cloudflare CLI cihaz koduyla başarıyla yetkilendirildi (hesap/kullanıcı okuma ve Pages yazma). GitHub bağlantılı proje oluşturma isteği Cloudflare tarafından HTTP 403 / `8000077: Your user email must been verified` hatasıyla reddedildi. Hesabın e-posta doğrulaması bekleniyor; kalıcı Pages yayını ve canlı HTTPS testleri henüz tamamlanmadı. Kanıt: `qa/cloudflare-provisioning.json`.
 
 ## Sınırlar
 
