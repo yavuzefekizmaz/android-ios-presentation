@@ -4,6 +4,8 @@
 
 Üst alandaki OBSIDIAN TECH ve görünür çevrimdışı durum etiketi kaldırıldı. Ekrana sığdırma anahtarı en az 44 px tıklama yüksekliği, klavye odağı ve belirgin seçili durumla yenilendi. Yerel Chromium kontrolünde etiketlerin görünmediği, anahtarın okuma görünümünü değiştirdiği ve çevrimdışı önbelleğin yine tamamlandığı doğrulandı.
 
+İlk 1.1.0 Actions koşusu (`38881118601`) tam ekran testleri arasında tarayıcı geçişi tamamlanmadan sonraki test başladığı için `Document not active` ile başarısız oldu. Test, önceki çıkışı ve sonraki tam ekran girişini bekleyecek, ilgili sayfayı öne alacak şekilde düzeltildi; uygulama kodu değişmedi. Başarısız koşu başarılı test kanıtı sayılmaz. Sonraki koşunun sonucu GitHub Actions geçmişinde izlenir.
+
 Mobil okuma görünümü kaynak nesneleri tek tek sıralamak yerine ilişkili kart ve ikon gruplarını korur. 3 ve 4. slayttaki kapatılmış eski fotoğraflar yalnızca mobil akıştan çıkartıldı; üstteki doğru fotoğraflar korunur. 9. slayttaki dört saydam görüntü ve numaraları tek ölçeklenebilir şemada kalır. 31 slaydın özgün metinleri korunur; 320, 390 ve 700 px genişliklerde metin kapsamı ve yatay taşma denetlenir. Kaynak slayt JSON'u değiştirilmedi.
 
 PDF ve PowerPoint seçimini sunan yerel diyalog; açma/kapama, Escape ve odak dönüşüyle test edilir. İndirilen PPTX, kaynak dosyanın SHA-256 değeriyle karşılaştırılır. Her iki dosya ağ kapalı yeniden yükleme sonrasında Service Worker üzerinden okunur. `npm test`: 20 temel + 8 yeni kontrol. Güncel mobil kanıtlar `qa/mobile-results.json` ve canlı karşılıklarıdır.
